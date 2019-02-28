@@ -1,0 +1,412 @@
+Report found 1 issues
+
+==================================================
+Title: Floating Pragma
+Head: A floating pragma is set.
+Description: It is recommended to make a conscious choice on what version of Solidity is used for compilation. Currently any version equal or greater than "0.4.21" is allowed.
+Source code:
+
+c.sol 1:0
+--------------------------------------------------
+pragma solidity ^0.4.21;
+--------------------------------------------------
+c.sol 2:0
+--------------------------------------------------
+pragma solidity ^0.4.21;
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: State Variable Default Visibility
+Head: The state variable visibility is not set.
+Description: It is best practice to set the visibility of state variables explicitly. The default visibility for "participantPayment" is internal. Other possible visibility values are public and private.
+Source code:
+
+c.sol 107:46
+--------------------------------------------------
+participantPayment
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: Use of Deprecated Solidity Functions
+Head: Use of disallowed state mutability modifier "constant".
+Description: Using "constant" as a state mutability modifier in function "getDeposit" is disallowed as of Solidity version 0.5.0. Use "view" instead.
+Source code:
+
+c.sol 165:4
+--------------------------------------------------
+function getDeposit(address _participant)
+        public
+        constant
+        returns (uint)
+    {
+        if (withdrawMap[_participant].withdrawed == 1) {
+            return 0;
+        } else {
+            return (deposits[_participant]);
+        }
+    }
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: Use of Deprecated Solidity Functions
+Head: Use of disallowed state mutability modifier "constant".
+Description: Using "constant" as a state mutability modifier in function "getWithdrawInfo" is disallowed as of Solidity version 0.5.0. Use "view" instead.
+Source code:
+
+c.sol 182:4
+--------------------------------------------------
+function getWithdrawInfo(address _participant)
+        public
+        constant
+        returns (uint, uint8, uint)
+    {
+        return (deposits[_participant],
+                withdrawMap[_participant].withdrawed,
+                withdrawMap[_participant].time + withdrawTimeLimit
+            );
+    }
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: Use of Deprecated Solidity Functions
+Head: Use of disallowed state mutability modifier "constant".
+Description: Using "constant" as a state mutability modifier in function "getParticipantPayment" is disallowed as of Solidity version 0.5.0. Use "view" instead.
+Source code:
+
+c.sol 323:4
+--------------------------------------------------
+function getParticipantPayment(address _participant, uint _sessionId)
+        public
+        constant
+        returns (uint)
+    {
+        return participantPayment[_sessionId][_participant];
+    }
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: Reentrancy
+Head: persistent state read after call
+Description: Accessing the persistent state (storage or balance) of a contract should be avoided after calls to external contracts to prevent reentrancy issues. Make sure the callee is trusted or access the persistent state before the call.
+Source code:
+
+c.sol 294:29
+--------------------------------------------------
+participantPayment[_sessionId][_participant]
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: Reentrancy
+Head: persistent state read after call
+Description: Accessing the persistent state (storage or balance) of a contract should be avoided after calls to external contracts to prevent reentrancy issues. Make sure the callee is trusted or access the persistent state before the call.
+Source code:
+
+c.sol 296:12
+--------------------------------------------------
+deposits[_participant]
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: Integer Overflow and Underflow
+Head: integer overflow
+Description: Integer overflows are often not intended. Make sure your contracts take appropriate precautions when performing arithmetic operations.
+Source code:
+
+c.sol 81:20
+--------------------------------------------------
+_amount * platformRate
+--------------------------------------------------
+
+==================================================
+ 
+==================================================
+Title: Requirement Violation
+Head: precondition violation
+Description: Precondition violations should be avoided when passing inputs to other contracts. Make sure your contracts provide only valid inputs to both callees (e.g, via passed arguments) and callers (e.g., via return values).
+Source code:
+
+c.sol 104:0
+--------------------------------------------------
+contract Quantum is AbstractPaymentQuantum {
+    uint public withdrawTimeLimit = 240;
+    mapping(address => Withdraw) public withdrawMap;
+    mapping(uint => mapping(address => uint)) participantPayment;
+
+    struct Withdraw {
+        uint8 withdrawed;
+        uint time;
+    }
+
+    event WithdrawDeposit(address indexed _participant, uint _amount, uint _time);
+
+    event Commit(address indexed _participant,
+                address indexed _kp,
+                uint _amount,
+                uint _remainingValue,
+                uint _sessionId,
+                uint _time
+    );
+
+    modifier isValidAmount(address _participant, uint _amount, uint _sessionId) {
+        if (_amount <= participantPayment[_sessionId][_participant]) {
+            revert();
+        }
+        _;
+    }
+
+    modifier hasFunds(address _user) {
+        if (deposits[_user] == 0) {
+            revert();
+        }
+        _;
+    }
+
+    function Quantum(address _platform, address _wallet) public {
+        platform = _platform;
+        wallet = _wallet;
+    }
+
+     /**
+     * @dev Deposit funds into the participant account
+     * @return uint Value of the deposit
+    */
+    function deposit()
+        public
+        payable
+        returns (uint)
+    {
+        require(withdrawMap[msg.sender].withdrawed == 0);
+        deposits[msg.sender] += msg.value;
+        // solium-disable-next-line security/no-block-members
+        emit Deposit(msg.sender, msg.value, now);
+
+        return deposits[msg.sender];
+    }
+
+     /**
+     * @dev Get the deposit of a specified member if the withdraw flag is 0 or 0 when the withdraw flag is 1
+     * @param _participant Address of the participant
+     * @return Amount in wei or 0 when the withdraw flag is 1
+    */
+    function getDeposit(address _participant)
+        public
+        constant
+        returns (uint)
+    {
+        if (withdrawMap[_participant].withdrawed == 1) {
+            return 0;
+        } else {
+            return (deposits[_participant]);
+        }
+    }
+
+    /**
+     * @dev Get deposit, withdraw flag and the timestamp when the withdraw is enabled
+     * @param _participant Address of the participant
+     * @return Amount in wei of the balance, the withdraw flag and the time when the withdraw is enabled
+    */
+    function getWithdrawInfo(address _participant)
+        public
+        constant
+        returns (uint, uint8, uint)
+    {
+        return (deposits[_participant],
+                withdrawMap[_participant].withdrawed,
+                withdrawMap[_participant].time + withdrawTimeLimit
+            );
+    }
+
+    /**
+     * @dev Withdraw the amount of wei deposited in the deposit. Can be performed only by the owner of the deposit
+     * @return true if the withdraw action was successful, false otherwise
+     */
+    function withdraw()
+        public
+        hasFunds(msg.sender)
+        returns (bool)
+    {
+        bool success = false;
+        // solium-disable-next-line security/no-block-members
+        if (now > withdrawMap[msg.sender].time + withdrawTimeLimit &&
+            withdrawMap[msg.sender].withdrawed == 1) {
+
+            if (consumeDeposit(msg.sender)) {
+                resetWithdraw(msg.sender);
+                success = true;
+            }
+        }
+
+        return success;
+    }
+
+     /**
+     * @dev AutoWithdraw the amount of wei deposited in the deposit.
+     * @param  _participant Address of the participant
+     * @param _v Signature component
+     * @param _r Signature component
+     * @param _s Signature component
+     * @return true if the withdraw action was successful, false otherwise of if the ecrecover check fails
+     */
+    function autoWithdraw(address _participant, uint8 _v, bytes32 _r, bytes32 _s)
+        public
+        hasFunds(_participant)
+        returns (bool)
+    {
+        if (_participant != ecrecover(keccak256(_participant), _v, _r, _s)) {
+            revert();
+        }
+
+        bool success = false;
+        // solium-disable-next-line security/no-block-members
+        if (now > withdrawMap[_participant].time + withdrawTimeLimit &&
+            withdrawMap[_participant].withdrawed == 1) {
+
+            if (consumeDeposit(_participant)) {
+                resetWithdraw(_participant);
+                success = true;
+            }
+        }
+
+        return success;
+    }
+
+     /**
+     * @dev Mark the initiation of the withdraw action
+     * @return true if marked
+     */
+    function initWithdraw()
+        public
+        hasFunds(msg.sender)
+        returns (bool)
+    {
+        if (withdrawMap[msg.sender].withdrawed == 0) {
+            withdrawMap[msg.sender].withdrawed = 1;
+            // solium-disable-next-line security/no-block-members
+            withdrawMap[msg.sender].time = now;
+        }
+        return true;
+    }
+
+    /**
+     * @dev Commit the last message and make the payments to KP and platform
+     * @param _participant Address of the participant
+     * @param _kp Address of the KP
+     * @param _value The amount of wei the participant has to pay for the given session
+     * @param _v Signature component
+     * @param _r Signature component
+     * @param _s Signature component
+     * @param _sessionId The session identifier
+     * @return bool
+    */
+    function commit(
+        address _participant,
+        address _kp,
+        uint _value,
+        uint _sessionId,
+        uint8 _v,
+        bytes32 _r,
+        bytes32 _s
+        )
+        public
+        isValidAmount(_participant, _value, _sessionId)
+        returns (bool)
+    {
+        if (_participant != ecrecover(keccak256(_sessionId, _participant, _kp, _value), _v, _r, _s)) {
+            revert();
+        }
+
+        uint[1] memory remainingValue;
+        remainingValue[0] = _value;
+        remainingValue[0] -= participantPayment[_sessionId][_participant];
+
+        if (deposits[_participant] < remainingValue[0]) {
+            revert();
+        }
+
+        deposits[_participant] -= remainingValue[0];
+        participantPayment[_sessionId][_participant] += remainingValue[0];
+        remainingValue[0] -= collectPlatformFee(remainingValue[0]);
+
+        // solium-disable-next-line security/no-block-members
+        emit Commit(_participant, _kp, _value, remainingValue[0], _sessionId, now);
+        return payKp(_kp, remainingValue[0]);
+    }
+
+    /**
+    * @dev Change the withdrow time limit
+    * @param _timeLimit the new limit
+    */
+    function changeWithdrawLimit(uint _timeLimit)
+        public
+        onlyBy(platform)
+    {
+        withdrawTimeLimit = _timeLimit;
+    }
+
+    /**
+     * @dev only for testing purpose
+    */
+    function getParticipantPayment(address _participant, uint _sessionId)
+        public
+        constant
+        returns (uint)
+    {
+        return participantPayment[_sessionId][_participant];
+    }
+
+     /**
+     * @dev Unmark the initiation of the withdraw action (opposite action of initWithdraw)
+     * @param  _participant Address of the participant
+     * @return true if unmarked
+     */
+    function resetWithdraw(address _participant)
+        internal
+        returns (bool)
+    {
+        if (withdrawMap[_participant].withdrawed == 1) {
+            withdrawMap[_participant].withdrawed = 0;
+            withdrawMap[_participant].time = 0;
+        }
+        return true;
+    }
+
+    /**
+     * @dev Empty the participant's deposit by transferring all the funds to the participant address
+     * @param _user Address of the participant
+     * @return true if success
+     */
+    function consumeDeposit(address _user)
+        internal
+        returns (bool)
+    {
+        if (deposits[_user] > 0) {
+
+            uint userDeposit = deposits[_user];
+            deposits[_user] = 0;
+            _user.transfer(userDeposit);
+            // solium-disable-next-line security/no-block-members
+            emit WithdrawDeposit(_user, userDeposit, now);
+        }
+
+        return true;
+    }
+}
+--------------------------------------------------
+
+==================================================
+
+Done
