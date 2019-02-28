@@ -14,6 +14,23 @@ A CLI client for MythX
 * [Commands](#commands)
 <!-- tocstop -->
 # Usage
+
+Use this to scan Solidity source code.
+
+You need to provide your MythX address and password.
+
+As an env variable:
+```sh-session
+$ MYTHX_ETH_ADDRESS=mythxEthAddress MYTHX_PASSWORD=mythxPassword mythos analyze ./contract.sol Contract
+```
+
+Or as flags:
+```sh-session
+$ mythos analyze ./contract.sol Contract --mythxEthAddress=mythxEthAddress --mythxPassword=mythxPassword
+```
+
+## Basic usage
+
 <!-- usage -->
 ```sh-session
 $ npm install -g @cleanunicorn/mythos
@@ -29,9 +46,13 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-* [`mythos hello [FILE]`](#mythos-hello-file)
-* [`mythos help [COMMAND]`](#mythos-help-command)
+- [mythos](#mythos)
+- [Usage](#usage)
+  - [Basic usage](#basic-usage)
+- [Commands](#commands)
+  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+  - [`mythos hello [FILE]`](#mythos-hello-file)
+  - [`mythos help [COMMAND]`](#mythos-help-command)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
