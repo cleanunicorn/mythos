@@ -54,11 +54,6 @@ export class Sourcemap {
         outputList.push(this.formatIssue(issue))
       }
     }
-    // this.issues.forEach((issueList: any) => {
-    //   issueList.forEach((issue: any) => {
-    //     outputList.push(this.formatIssue(issue))
-    //   })
-    // })
 
     return outputList
   }
