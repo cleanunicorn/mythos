@@ -6,8 +6,10 @@ A CLI client for MythX
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@cleanunicorn/mythos.svg)](https://npmjs.org/package/mythos)
 [![Downloads/week](https://img.shields.io/npm/dw/mythos.svg)](https://npmjs.org/package/mythos)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4388201afa8745d2a70b77a3a2b5b03a)](https://www.codacy.com?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=cleanunicorn/mythos&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c13f68494414f5fb60b10cc30a6acbc)](https://www.codacy.com/app/lucadanielcostin/mythos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+[![CircleCI](https://circleci.com/gh/cleanunicorn/mythos/tree/master.svg?style=shield)](https://circleci.com/gh/cleanunicorn/mythos)
+[![Build status](https://ci.appveyor.com/api/projects/status/nverbd397m2w9qlp/branch/master?svg=true)](https://ci.appveyor.com/project/cleanunicorn/mythos/branch/master)
 
 <!-- toc -->
 * [Usage](#usage)
@@ -21,12 +23,16 @@ You need to provide your MythX address and password.
 
 As an env variable:
 ```sh-session
-$ MYTHX_ETH_ADDRESS=mythxEthAddress MYTHX_PASSWORD=mythxPassword mythos analyze ./contract.sol Contract
+$ export MYTHX_ETH_ADDRESS='mythxEthAddress' 
+$ export MYTHX_PASSWORD='mythxPassword' 
+$ mythos analyze ./contract.sol Contract
 ```
 
 Or as flags:
 ```sh-session
-$ mythos analyze ./contract.sol Contract --mythxEthAddress=mythxEthAddress --mythxPassword=mythxPassword
+$ mythos analyze ./contract.sol Contract \
+  --mythxEthAddress=mythxEthAddress \
+  --mythxPassword=mythxPassword
 ```
 
 ## Basic usage
@@ -51,7 +57,6 @@ USAGE
   - [Basic usage](#basic-usage)
 - [Commands](#commands)
   - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-  - [`mythos hello [FILE]`](#mythos-hello-file)
   - [`mythos help [COMMAND]`](#mythos-help-command)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
@@ -79,26 +84,6 @@ OPTIONS
 ```
 
 _See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.0.4/src/commands/analyze.ts)_
-
-## `mythos hello [FILE]`
-
-describe the command here
-
-```
-USAGE
-  $ mythos hello [FILE]
-
-OPTIONS
-  -f, --force
-  -h, --help       show CLI help
-  -n, --name=name  name to print
-
-EXAMPLE
-  $ mythos hello
-  hello world from ./src/hello.ts!
-```
-
-_See code: [src/commands/hello.ts](https://github.com/cleanunicorn/mythos/blob/v0.0.4/src/commands/hello.ts)_
 
 ## `mythos help [COMMAND]`
 
