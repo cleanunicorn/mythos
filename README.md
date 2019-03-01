@@ -43,7 +43,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.0.4 linux-x64 node-v11.10.0
+@cleanunicorn/mythos/0.0.5 linux-x64 node-v11.10.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -52,12 +52,8 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [mythos](#mythos)
-- [Usage](#usage)
-  - [Basic usage](#basic-usage)
-- [Commands](#commands)
-  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-  - [`mythos help [COMMAND]`](#mythos-help-command)
+* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+* [`mythos help [COMMAND]`](#mythos-help-command)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
@@ -83,7 +79,7 @@ OPTIONS
   --timeout=timeout                  [default: 60000] How many miliseconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.0.4/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.0.5/src/commands/analyze.ts)_
 
 ## `mythos help [COMMAND]`
 
