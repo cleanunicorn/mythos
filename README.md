@@ -23,8 +23,8 @@ You need to provide your MythX address and password.
 
 As an env variable:
 ```sh-session
-$ export MYTHX_ETH_ADDRESS='mythxEthAddress' 
-$ export MYTHX_PASSWORD='mythxPassword' 
+$ export MYTHX_ETH_ADDRESS='mythxEthAddress'
+$ export MYTHX_PASSWORD='mythxPassword'
 $ mythos analyze ./contract.sol Contract
 ```
 
@@ -35,6 +35,26 @@ $ mythos analyze ./contract.sol Contract \
   --mythxPassword=mythxPassword
 ```
 
+Example:
+```sh-session
+$ mythos analyze a.sol A --timeout=600000 --solcVersion=v0.5.3+commit.10d17f24
+Reading contract a.sol... done
+Downloading Solidity version v0.5.3+commit.10d17f24... done
+Analyzing contract A... done
+Report found 1 issues
+Title: Unprotected SELFDESTRUCT Instruction
+Head: The contract can be killed by anyone.
+Description: Arbitrary senders can kill this contract and withdraw its balance to their own account.
+Source code:
+
+a.sol 7:8
+--------------------------------------------------
+selfdestruct(msg.sender)
+--------------------------------------------------
+
+==================================================
+```
+
 ## Basic usage
 
 <!-- usage -->
@@ -43,7 +63,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.0.5 linux-x64 node-v11.10.0
+@cleanunicorn/mythos/0.0.5 linux-x64 node-v11.10.1
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -76,7 +96,7 @@ OPTIONS
                                      v0.4.21+commit.dfe3193c). Get available compilers from
                                      https://ethereum.github.io/solc-bin/bin/list.txt
 
-  --timeout=timeout                  [default: 60000] How many miliseconds to wait for the result
+  --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
 _See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.0.5/src/commands/analyze.ts)_

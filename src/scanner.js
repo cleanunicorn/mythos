@@ -15,6 +15,7 @@ module.exports.Scanner = class Scanner {
 
   async run(compiled, contractFile, contractName, timeout) {
     let contractData = compiled.contracts[contractFile][contractName];
+    timeout = timeout * 1000;
 
     const contractSource = fs.readFileSync(contractFile, { encoding: 'utf-8' })
 

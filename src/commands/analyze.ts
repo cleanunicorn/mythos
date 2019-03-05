@@ -22,8 +22,8 @@ export default class Analyze extends Command {
       required: true,
     }),
     timeout: flags.integer({
-      default: 60000,
-      description: 'How many miliseconds to wait for the result',
+      default: 180,
+      description: 'How many seconds to wait for the result',
     }),
     solcVersion: flags.string({
       default: 'latest',
