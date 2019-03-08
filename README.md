@@ -4,17 +4,28 @@ mythos
 A CLI client for MythX
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/@cleanunicorn/mythos.svg)](https://npmjs.org/package/mythos)
-[![Downloads/week](https://img.shields.io/npm/dw/mythos.svg)](https://npmjs.org/package/mythos)
+[![Version](https://img.shields.io/npm/v/@cleanunicorn/mythos.svg)](https://www.npmjs.com/package/@cleanunicorn/mythos)
+[![Downloads/week](https://img.shields.io/npm/dw/mythos.svg)](https://www.npmjs.com/package/@cleanunicorn/mythos)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c13f68494414f5fb60b10cc30a6acbc)](https://www.codacy.com/app/lucadanielcostin/mythos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/cleanunicorn/mythos/tree/master.svg?style=shield)](https://circleci.com/gh/cleanunicorn/mythos)
 [![Build status](https://ci.appveyor.com/api/projects/status/nverbd397m2w9qlp/branch/master?svg=true)](https://ci.appveyor.com/project/cleanunicorn/mythos/branch/master)
 
 <!-- toc -->
+* [Installation](#installation)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
+
+# Installation
+
+Install globally using:
+```
+npm -g install @cleanunicorn/mythos
+```
+
+
 # Usage
 
 Use this to scan Solidity source code.
