@@ -63,6 +63,7 @@ export class Compiler {
     let ast
     try {
       ast = parser.parse(fileContents, {})
+      // @ts-ignore
       for (let n of ast.children) {
         if ((n.name === 'solidity') && (n.type === 'PragmaDirective')) {
           return n.value
@@ -73,7 +74,7 @@ export class Compiler {
     }
   }
 
-  async solcVersion(solidityVersion: string): string {
+  async solcVersion(solidityVersion: string): Promise<string> {
     solidityVersion = solidityVersion.replace('^', '')
     solidityVersion = solidityVersion.replace('v', '')
 
