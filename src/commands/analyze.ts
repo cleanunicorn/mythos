@@ -26,8 +26,7 @@ export default class Analyze extends Command {
       description: 'How many seconds to wait for the result',
     }),
     solcVersion: flags.string({
-      default: 'latest',
-      description: 'Solidity version to use when compiling (example: v0.4.21+commit.dfe3193c). Get available compilers from https://ethereum.github.io/solc-bin/bin/list.txt',
+      description: 'Solidity version to use when compiling (example: 0.4.21). If none is specified it will try to identify the version from the source code.',
     }),
   }
 
@@ -66,7 +65,9 @@ export default class Analyze extends Command {
     try {
       compiled = await c.solidity(contractFile, contractFileContent, solcVersion)
     } catch (error) {
-      this.error(`Error: ${error}`)
+      for (let err of error.errors) {
+        cli.info(err.formattedMessage)
+      }
       cli.action.stop('failed')
       return
     }
