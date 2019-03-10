@@ -21,8 +21,8 @@ A CLI client for MythX
 # Installation
 
 Install globally using:
-```
-npm -g install @cleanunicorn/mythos
+```sh-session
+$ npm -g install @cleanunicorn/mythos
 ```
 
 
@@ -74,7 +74,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.0.5 linux-x64 node-v11.10.1
+@cleanunicorn/mythos/0.0.5 linux-x64 node-v11.10.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -83,8 +83,13 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-* [`mythos help [COMMAND]`](#mythos-help-command)
+- [mythos](#mythos)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic usage](#basic-usage)
+- [Commands](#commands)
+  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+  - [`mythos help [COMMAND]`](#mythos-help-command)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
@@ -103,9 +108,8 @@ OPTIONS
   --mythxEthAddress=mythxEthAddress  (required)
   --mythxPassword=mythxPassword      (required)
 
-  --solcVersion=solcVersion          [default: latest] Solidity version to use when compiling (example:
-                                     v0.4.21+commit.dfe3193c). Get available compilers from
-                                     https://ethereum.github.io/solc-bin/bin/list.txt
+  --solcVersion=solcVersion          Solidity version to use when compiling (example: 0.4.21). If none is specified it
+                                     will try to identify the version from the source code.
 
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```

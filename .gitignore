@@ -93,3 +93,7 @@ typings/
 
 # DynamoDB Local files
 .dynamodb/
+
+#
+issues.json
+compiled.json
