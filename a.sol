@@ -1,4 +1,4 @@
-pragma solidity ^0.5.3;
+pragma solidity >=0.4.22 <0.4.25;
 
 contract A {
     uint256 public n = 2^250;
