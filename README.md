@@ -48,7 +48,7 @@ $ mythos analyze ./contract.sol Contract \
 
 Example:
 ```sh-session
-$ mythos analyze a.sol A --timeout=600000 --solcVersion=v0.5.3+commit.10d17f24
+$ mythos analyze a.sol A --timeout=180
 Reading contract a.sol... done
 Downloading Solidity version v0.5.3+commit.10d17f24... done
 Analyzing contract A... done
