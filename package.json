@@ -1,7 +1,7 @@
 {
   "name": "@cleanunicorn/mythos",
   "description": "A CLI client for MythX",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "author": "Daniel Luca @cleanunicorn",
   "bin": {
     "mythos": "./bin/run"

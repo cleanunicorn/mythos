@@ -74,7 +74,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.2.0 linux-x64 node-v11.10.1
+@cleanunicorn/mythos/0.3.0 linux-x64 node-v11.11.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -114,7 +114,7 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.2.0/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.3.0/src/commands/analyze.ts)_
 
 ## `mythos help [COMMAND]`
 
