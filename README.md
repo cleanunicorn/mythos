@@ -4,17 +4,28 @@ mythos
 A CLI client for MythX
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
-[![Version](https://img.shields.io/npm/v/@cleanunicorn/mythos.svg)](https://npmjs.org/package/mythos)
-[![Downloads/week](https://img.shields.io/npm/dw/mythos.svg)](https://npmjs.org/package/mythos)
+[![Version](https://img.shields.io/npm/v/@cleanunicorn/mythos.svg)](https://www.npmjs.com/package/@cleanunicorn/mythos)
+[![Downloads/week](https://img.shields.io/npm/dw/mythos.svg)](https://www.npmjs.com/package/@cleanunicorn/mythos)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c13f68494414f5fb60b10cc30a6acbc)](https://www.codacy.com/app/lucadanielcostin/mythos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/cleanunicorn/mythos/tree/master.svg?style=shield)](https://circleci.com/gh/cleanunicorn/mythos)
 [![Build status](https://ci.appveyor.com/api/projects/status/nverbd397m2w9qlp/branch/master?svg=true)](https://ci.appveyor.com/project/cleanunicorn/mythos/branch/master)
 
 <!-- toc -->
+* [Installation](#installation)
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+
+
+# Installation
+
+Install globally using:
+```sh-session
+$ npm -g install @cleanunicorn/mythos
+```
+
+
 # Usage
 
 Use this to scan Solidity source code.
@@ -37,7 +48,7 @@ $ mythos analyze ./contract.sol Contract \
 
 Example:
 ```sh-session
-$ mythos analyze a.sol A --timeout=600000 --solcVersion=v0.5.3+commit.10d17f24
+$ mythos analyze a.sol A --timeout=180
 Reading contract a.sol... done
 Downloading Solidity version v0.5.3+commit.10d17f24... done
 Analyzing contract A... done
@@ -63,7 +74,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.0.5 linux-x64 node-v11.10.1
+@cleanunicorn/mythos/0.2.0 linux-x64 node-v11.10.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -92,14 +103,13 @@ OPTIONS
   --mythxEthAddress=mythxEthAddress  (required)
   --mythxPassword=mythxPassword      (required)
 
-  --solcVersion=solcVersion          [default: latest] Solidity version to use when compiling (example:
-                                     v0.4.21+commit.dfe3193c). Get available compilers from
-                                     https://ethereum.github.io/solc-bin/bin/list.txt
+  --solcVersion=solcVersion          Solidity version to use when compiling (example: 0.4.21). If none is specified it
+                                     will try to identify the version from the source code.
 
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.0.5/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.2.0/src/commands/analyze.ts)_
 
 ## `mythos help [COMMAND]`
 

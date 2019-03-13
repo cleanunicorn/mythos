@@ -20,7 +20,6 @@ module.exports.Scanner = class Scanner {
     const contractSource = fs.readFileSync(contractFile, { encoding: 'utf-8' })
 
     const data = {
-      clientToolName: "mythos",
       contractName: contractName,
       abi: contractData['abi'],
       //
@@ -37,13 +36,14 @@ module.exports.Scanner = class Scanner {
           source: contractSource,
         }
       },
-      analysisMode: 'full',
+      analysisMode: 'quick',
     };
 
     return new Promise((resolve, reject) => {
       this.client.analyze({
         data,
         timeout,
+        clientToolName: "mythos",
       }).then(issues => {
         fs.writeFileSync('./issues.json', JSON.stringify(issues, null, 4), 'utf-8');
         resolve(issues);

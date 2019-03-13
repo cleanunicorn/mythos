@@ -1,7 +1,7 @@
 {
   "name": "@cleanunicorn/mythos",
   "description": "A CLI client for MythX",
-  "version": "0.0.5",
+  "version": "0.2.0",
   "author": "Daniel Luca @cleanunicorn",
   "bin": {
     "mythos": "./bin/run"
@@ -13,12 +13,15 @@
     "@oclif/command": "^1.5.10",
     "@oclif/config": "^1.12.8",
     "@oclif/plugin-help": "^2.1.6",
+    "@types/request-promise": "^4.1.42",
+    "armlet": "^2.1.0",
     "cli-ux": "^5.2.0",
-    "remix-lib": "^0.4.1",
-    "solc": "^0.5.4",
-    "tslib": "^1.9.3",
     "globby": "^8.0.2",
-    "armlet": "^2.0.1"
+    "remix-lib": "^0.4.1",
+    "request-promise": "^4.2.4",
+    "solc": "^0.5.4",
+    "solidity-parser-antlr": "^0.4.2",
+    "tslib": "^1.9.3"
   },
   "devDependencies": {
     "@oclif/dev-cli": "^1.21.2",
