@@ -15,6 +15,7 @@ A CLI client for MythX
 * [Installation](#installation)
 * [Usage](#usage)
 * [Commands](#commands)
+* [Changelog](#changelog)
 <!-- tocstop -->
 
 
@@ -83,8 +84,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-* [`mythos help [COMMAND]`](#mythos-help-command)
+- [mythos](#mythos)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic usage](#basic-usage)
+- [Commands](#commands)
+  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+  - [`mythos help [COMMAND]`](#mythos-help-command)
+- [Changelog](#changelog)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
@@ -133,3 +140,12 @@ OPTIONS
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 <!-- commandsstop -->
+
+# Changelog
+
+* [0.3.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.3.0)
+  * Request different depths of analyses with `--analysisMode` can be `full` or `quick`
+  * Add changelog
+
+* [0.2.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.2.0) 
+  * Stable version, first release
