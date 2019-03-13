@@ -13,7 +13,7 @@ module.exports.Scanner = class Scanner {
     return {}
   }
 
-  async run(compiled, contractFile, contractName, timeout) {
+  async run(compiled, contractFile, contractName, timeout, analysisMode) {
     let contractData = compiled.contracts[contractFile][contractName];
     timeout = timeout * 1000;
 
@@ -36,7 +36,7 @@ module.exports.Scanner = class Scanner {
           source: contractSource,
         }
       },
-      analysisMode: 'quick',
+      analysisMode: analysisMode,
     };
 
     return new Promise((resolve, reject) => {
