@@ -28,6 +28,10 @@ export default class Analyze extends Command {
     solcVersion: flags.string({
       description: 'Solidity version to use when compiling (example: 0.4.21). If none is specified it will try to identify the version from the source code.',
     }),
+    analysisMode: flags.string({
+      default: 'quick',
+      description: 'Define the analysis mode when requesting a scan. Choose one from: quick, full.'
+    }),
   }
 
   static args = [
@@ -52,6 +56,7 @@ export default class Analyze extends Command {
     const mythxPassword = flags.mythxPassword
     let timeout = flags.timeout
     const solcVersion = flags.solcVersion
+    const analysisMode = flags.analysisMode
 
     // Read contract source code
     cli.action.start(`Reading contract ${contractFile}`)
@@ -78,7 +83,7 @@ export default class Analyze extends Command {
     let issues
     const scanner = new Scanner(mythxAddress, mythxPassword)
     try {
-      issues = await scanner.run(compiled, contractFile, contractName, timeout)
+      issues = await scanner.run(compiled, contractFile, contractName, timeout, analysisMode)
       cli.action.stop('done')
     } catch (error) {
       this.error(error)

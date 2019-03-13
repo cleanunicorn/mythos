@@ -74,7 +74,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.2.0 linux-x64 node-v11.10.0
+@cleanunicorn/mythos/0.2.0 linux-x64 node-v11.10.1
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -100,7 +100,12 @@ ARGUMENTS
 
 OPTIONS
   -h, --help                         show CLI help
+
+  --analysisMode=analysisMode        [default: quick] Define the analysis mode when requesting a scan. Choose one from:
+                                     quick, full.
+
   --mythxEthAddress=mythxEthAddress  (required)
+
   --mythxPassword=mythxPassword      (required)
 
   --solcVersion=solcVersion          Solidity version to use when compiling (example: 0.4.21). If none is specified it
