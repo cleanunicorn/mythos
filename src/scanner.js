@@ -36,7 +36,7 @@ module.exports.Scanner = class Scanner {
           source: contractSource,
         }
       },
-      analysisMode: analysisMode,
+      analysisMode,
     };
 
     return new Promise((resolve, reject) => {
