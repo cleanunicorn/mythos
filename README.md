@@ -12,10 +12,12 @@ A CLI client for MythX
 [![Build status](https://ci.appveyor.com/api/projects/status/nverbd397m2w9qlp/branch/master?svg=true)](https://ci.appveyor.com/project/cleanunicorn/mythos/branch/master)
 
 <!-- toc -->
-* [Installation](#installation)
-* [Usage](#usage)
-* [Commands](#commands)
-* [Changelog](#changelog)
+- [mythos](#mythos)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic usage](#basic-usage)
+- [Commands](#commands)
+- [Changelog](#changelog)
 <!-- tocstop -->
 
 
@@ -89,12 +91,15 @@ USAGE
 
 # Changelog
 
+* [0.3.2](https://github.com/cleanunicorn/mythos/releases/tag/v0.3.2)
+  * Display message on syntax error.
+
 * [0.3.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.3.1)
-  * Add `Severity` to output
+  * Add `Severity` to output.
 
 * [0.3.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.3.0)
-  * Request different depths of analyses with `--analysisMode` can be `full` or `quick`
-  * Add changelog
+  * Request different depths of analyses with `--analysisMode` can be `full` or `quick`.
+  * Add changelog.
 
 * [0.2.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.2.0) 
-  * Stable version, first release
+  * Stable version, first release.
