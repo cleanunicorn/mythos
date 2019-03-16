@@ -70,8 +70,13 @@ export default class Analyze extends Command {
     try {
       compiled = await c.solidity(contractFile, contractFileContent, solcVersion)
     } catch (error) {
-      for (let err of error.errors) {
-        cli.info(err.formattedMessage)
+      if (error.message !== undefined) {
+        cli.info(error.message)
+      }
+      if (error.errors !== undefined) {
+        for (let err of error.errors) {
+          cli.info(err.formattedMessage)
+        }
       }
       cli.action.stop('failed')
       return

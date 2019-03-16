@@ -1,6 +1,6 @@
 pragma solidity ^0.5.3;
 
-contract A {
+contract Vulnerable {
     uint256 public n = 2^250;
 
     function f() public {
