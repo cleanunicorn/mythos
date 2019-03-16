@@ -12,12 +12,10 @@ A CLI client for MythX
 [![Build status](https://ci.appveyor.com/api/projects/status/nverbd397m2w9qlp/branch/master?svg=true)](https://ci.appveyor.com/project/cleanunicorn/mythos/branch/master)
 
 <!-- toc -->
-- [mythos](#mythos)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Basic usage](#basic-usage)
-- [Commands](#commands)
-- [Changelog](#changelog)
+* [Installation](#installation)
+* [Usage](#usage)
+* [Commands](#commands)
+* [Changelog](#changelog)
 <!-- tocstop -->
 
 
@@ -77,7 +75,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.3.2 linux-x64 node-v11.10.1
+@cleanunicorn/mythos/0.3.2 linux-x64 node-v11.11.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -86,7 +84,55 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
+* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+* [`mythos help [COMMAND]`](#mythos-help-command)
 
+## `mythos analyze CONTRACTFILE CONTRACTNAME`
+
+Scan a smart contract with MythX API
+
+```
+USAGE
+  $ mythos analyze CONTRACTFILE CONTRACTNAME
+
+ARGUMENTS
+  CONTRACTFILE  Contract file to scan
+  CONTRACTNAME  Contract name
+
+OPTIONS
+  -h, --help                         show CLI help
+
+  --analysisMode=analysisMode        [default: quick] Define the analysis mode when requesting a scan. Choose one from:
+                                     quick, full.
+
+  --mythxEthAddress=mythxEthAddress  (required)
+
+  --mythxPassword=mythxPassword      (required)
+
+  --solcVersion=solcVersion          Solidity version to use when compiling (example: 0.4.21). If none is specified it
+                                     will try to identify the version from the source code.
+
+  --timeout=timeout                  [default: 180] How many seconds to wait for the result
+```
+
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.3.2/src/commands/analyze.ts)_
+
+## `mythos help [COMMAND]`
+
+display help for mythos
+
+```
+USAGE
+  $ mythos help [COMMAND]
+
+ARGUMENTS
+  COMMAND  command to show help for
+
+OPTIONS
+  --all  see all commands in CLI
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6/src/commands/help.ts)_
 <!-- commandsstop -->
 
 # Changelog
