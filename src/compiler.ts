@@ -86,8 +86,34 @@ export class Compiler {
     solidityVersion = solidityVersion.replace('^', '')
     solidityVersion = solidityVersion.replace('v', '')
 
+    let upperLimit = 'latest'
     let solcVersion = 'latest'
-
+    for (let i = 0; i < solidityVersion.length; i++) {
+      if (solidityVersion[i] === '<') {
+        if (solidityVersion[i + 1] === '=') {
+          solidityVersion = solidityVersion.substring(i + 1, solidityVersion.length)
+          break
+        }
+        upperLimit = solidityVersion.substring(i + 1, solidityVersion.length)
+        break
+      }
+    }
+    if (upperLimit !== 'latest') {
+      if (upperLimit === '0.5.0') {
+        solidityVersion = '0.4.25'
+      } else if (upperLimit === '0.4.0') {
+        solidityVersion = '0.3.6'
+      } else if (upperLimit === '0.3.0') {
+        solidityVersion = '0.2.2'
+      } else {
+        let x = parseInt(upperLimit[upperLimit.length - 1], 10) - 1
+        solidityVersion = ''
+        for (let i = 0; i < upperLimit.length - 1; i++) {
+          solidityVersion += upperLimit[i]
+        }
+        solidityVersion += x.toString()
+      }
+    }
     await request.get('https://ethereum.github.io/solc-bin/bin/list.txt')
       .then(body => {
         let lines = body.split('\n')
