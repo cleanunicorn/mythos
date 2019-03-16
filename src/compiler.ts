@@ -25,15 +25,21 @@ export class Compiler {
     // Get the solc string from https://ethereum.github.io/solc-bin/bin/list.txt
     let solcVersion: string
 
-    if (version === undefined) {
-      let sv = this.solidityVersion(fileContents)
-      if (sv !== undefined) {
-        solcVersion = await this.solcVersion(sv)
+    try {
+      if (version === undefined) {
+        let sv = this.solidityVersion(fileContents)
+        if (sv !== undefined) {
+          solcVersion = await this.solcVersion(sv)
+        }
+      } else if (version === 'latest') {
+        solcVersion = 'latest'
+      } else {
+        solcVersion = await this.solcVersion(version)
       }
-    } else if (version === 'latest') {
-      solcVersion = 'latest'
-    } else {
-      solcVersion = await this.solcVersion(version)
+    } catch (error) {
+      return new Promise((_, reject) => {
+        reject(error)
+      })
     }
 
     return new Promise((resolve, reject) => {
@@ -69,8 +75,10 @@ export class Compiler {
           return n.value
         }
       }
-    } catch (e) {
-      cli.error(e.errors)
+    } catch (error) {
+      for (let err of error.errors) {
+        cli.error(err.message)
+      }
     }
   }
 
