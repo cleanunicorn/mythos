@@ -17,7 +17,7 @@ export class Sourcemap {
 
     let out = ''
     out += `Title: ${issue.swcTitle}\n`
-    out += `Severity: ${issue.Severity}\n`
+    out += `Severity: ${issue.severity}\n`
     out += `Head: ${issue.description.head}\n`
     out += `Description: ${issue.description.tail}\n`
 
