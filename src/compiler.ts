@@ -91,7 +91,7 @@ export class Compiler {
     for (let i = 0; i < solidityVersion.length; i++) {
       if (solidityVersion[i] === '<') {
         if (solidityVersion[i + 1] === '=') {
-          solidityVersion = solidityVersion.substring(i + 1, solidityVersion.length)
+          solidityVersion = solidityVersion.substring(i + 2, solidityVersion.length)
           break
         }
         upperLimit = solidityVersion.substring(i + 1, solidityVersion.length)
