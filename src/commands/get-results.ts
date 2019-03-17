@@ -5,7 +5,7 @@ import * as fs from 'fs'
 
 import {Sourcemap} from '../sourcemap'
 
-export default class AnalysisResults extends Command {
+export default class GetResults extends Command {
   static description = 'Retrieve analysis results scanned with MythX API'
 
   static flags = {
@@ -31,7 +31,7 @@ export default class AnalysisResults extends Command {
 
   async run() {
     // Parse args and flags
-    const {args, flags} = this.parse(AnalysisResults)
+    const {args, flags} = this.parse(GetResults)
     const mythxAddress = flags.mythxEthAddress
     const mythxPassword = flags.mythxPassword
 
