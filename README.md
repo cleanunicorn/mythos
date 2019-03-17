@@ -84,8 +84,14 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-* [`mythos help [COMMAND]`](#mythos-help-command)
+- [mythos](#mythos)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic usage](#basic-usage)
+- [Commands](#commands)
+  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+  - [`mythos help [COMMAND]`](#mythos-help-command)
+- [Changelog](#changelog)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
@@ -136,6 +142,10 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 <!-- commandsstop -->
 
 # Changelog
+
+* [0.3.3](https://github.com/cleanunicorn/mythos/releases/tag/v0.3.2)
+  * Correctly pick solidity version when an interval is set (thanks to[@nanspro](https://github.com/nanspro)).
+  * Add `get-analysis` command to retrieve a scanned result (thanks to[@tagomaru](https://github.com/tagomaru)).
 
 * [0.3.2](https://github.com/cleanunicorn/mythos/releases/tag/v0.3.2)
   * Display message on syntax error.
