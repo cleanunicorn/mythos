@@ -1,9 +1,10 @@
 import {Command, flags} from '@oclif/command'
-import * as armlet from 'armlet'
 import cli from 'cli-ux'
 import * as fs from 'fs'
 
 import {Sourcemap} from '../sourcemap'
+
+const armlet = require('armlet')
 
 export default class GetResults extends Command {
   static description = 'Retrieve analysis results scanned with MythX API'
@@ -61,7 +62,7 @@ export default class GetResults extends Command {
     cli.action.stop('done')
 
     // Retrieve analysis results with UUID
-    let results = {issues : []}
+    let results: any = {issues : []}
     cli.action.start(`Retrieving analysis results: ${uuid}`)
     try {
       results.issues = await client.getIssues(uuid)
