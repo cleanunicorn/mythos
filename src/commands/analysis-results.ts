@@ -43,14 +43,31 @@ export default class AnalysisResults extends Command {
       ethAddress: mythxAddress,
     })
 
+    // Check analysis status with UUID
+    cli.action.start(`Check analysis status: ${uuid}`)
+    try {
+      const result = await client.getStatus(uuid)
+      if (result.status !== 'Finished') {
+        cli.action.stop('done')
+        this.log(`The job status is still '${result.status}'.`)
+        this.log('Please retry later.')
+        return
+      }
+    } catch (error) {
+      cli.action.stop('failed')
+      this.log(error)
+      return
+    }
+    cli.action.stop('done')
+
     // Retrieve analysis results with UUID
     let results = {issues : []}
     cli.action.start(`Retrieving analysis results: ${uuid}`)
     try {
       results.issues = await client.getIssues(uuid)
     } catch (error) {
-      this.error(error)
       cli.action.stop('failed')
+      this.error(error)
       return
     }
     cli.action.stop('done')
