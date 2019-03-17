@@ -97,7 +97,7 @@ export default class Analyze extends Command {
     }
 
     // Display report
-    this.log(`Report found ${issues.issues.length} issues`)
+    this.log(`Report found ${issues.issues[0].issues.length} issues`)
     const s = new Sourcemap(contractFile, contractFileContent, issues)
     this.log(s.output().join('\n'))
 
