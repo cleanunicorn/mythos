@@ -75,7 +75,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.4.0 linux-x64 node-v11.11.0
+@cleanunicorn/mythos/0.4.1 linux-x64 node-v11.11.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -84,15 +84,9 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [mythos](#mythos)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Basic usage](#basic-usage)
-- [Commands](#commands)
-  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-  - [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
-  - [`mythos help [COMMAND]`](#mythos-help-command)
-- [Changelog](#changelog)
+* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+* [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
+* [`mythos help [COMMAND]`](#mythos-help-command)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
@@ -122,7 +116,7 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.4.0/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.4.1/src/commands/analyze.ts)_
 
 ## `mythos get-analysis UUID`
 
@@ -141,7 +135,7 @@ OPTIONS
   --mythxPassword=mythxPassword      (required)
 ```
 
-_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.4.0/src/commands/get-analysis.ts)_
+_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.4.1/src/commands/get-analysis.ts)_
 
 ## `mythos help [COMMAND]`
 
