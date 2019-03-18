@@ -84,9 +84,15 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-* [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
-* [`mythos help [COMMAND]`](#mythos-help-command)
+- [mythos](#mythos)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic usage](#basic-usage)
+- [Commands](#commands)
+  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+  - [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
+  - [`mythos help [COMMAND]`](#mythos-help-command)
+- [Changelog](#changelog)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
@@ -156,6 +162,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 <!-- commandsstop -->
 
 # Changelog
+
+* [0.4.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.4.1)
+  * Update npm dependencies
 
 * [0.4.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.4.0)
   * Correctly pick solidity version when an interval is set (thanks to[@nanspro](https://github.com/nanspro)).
