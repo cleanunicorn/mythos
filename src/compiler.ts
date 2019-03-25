@@ -1,8 +1,27 @@
 /// <reference path="solc.d.ts">
 import cli from 'cli-ux'
+import * as fs from 'fs'
 import * as request from 'request-promise'
 import * as solc from 'solc'
 import * as parser from 'solidity-parser-antlr'
+
+const getFileContent = (filepath: string) => {
+  const stats = fs.statSync(filepath)
+
+  if (stats.isFile()) {
+    return fs.readFileSync(filepath).toString()
+  } else {
+    throw new Error(`File ${filepath} not found`)
+  }
+}
+
+const findImports = (pathName: string) => {
+  try {
+    return {contents: getFileContent(pathName)}
+  } catch (e) {
+    return {error: e.message}
+  }
+}
 
 export class Compiler {
   async solidity(fileName: string, fileContents: string, version: string | undefined) {
@@ -23,7 +42,7 @@ export class Compiler {
     }
 
     // Get the solc string from https://ethereum.github.io/solc-bin/bin/list.txt
-    let solcVersion: string
+    let solcVersion = 'latest'
 
     try {
       if (version === undefined) {
@@ -31,8 +50,6 @@ export class Compiler {
         if (sv !== undefined) {
           solcVersion = await this.solcVersion(sv)
         }
-      } else if (version === 'latest') {
-        solcVersion = 'latest'
       } else {
         solcVersion = await this.solcVersion(version)
       }
@@ -48,7 +65,7 @@ export class Compiler {
         if (err) {
           reject(err)
         } else {
-          let output = JSON.parse(solcSnapshot.compile(JSON.stringify(input)))
+          let output = JSON.parse(solcSnapshot.compile(JSON.stringify(input), findImports))
 
           // Reject if there are errors
           if (output.errors !== undefined) {
@@ -83,8 +100,7 @@ export class Compiler {
   }
 
   async solcVersion(solidityVersion: string): Promise<string> {
-    solidityVersion = solidityVersion.replace('^', '')
-    solidityVersion = solidityVersion.replace('v', '')
+    solidityVersion = solidityVersion.replace(/[\^v]/g, '')
 
     let upperLimit = 'latest'
     let solcVersion = 'latest'
@@ -99,7 +115,9 @@ export class Compiler {
       }
     }
     if (upperLimit !== 'latest') {
-      if (upperLimit === '0.5.0') {
+      if (upperLimit === '0.6.0' || upperLimit === '0.7.0') {
+        solidityVersion = '0.5.6'
+      } else if (upperLimit === '0.5.0') {
         solidityVersion = '0.4.25'
       } else if (upperLimit === '0.4.0') {
         solidityVersion = '0.3.6'
