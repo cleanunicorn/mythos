@@ -84,9 +84,15 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-* [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
-* [`mythos help [COMMAND]`](#mythos-help-command)
+- [mythos](#mythos)
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Basic usage](#basic-usage)
+- [Commands](#commands)
+  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+  - [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
+  - [`mythos help [COMMAND]`](#mythos-help-command)
+- [Changelog](#changelog)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
@@ -156,6 +162,11 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 <!-- commandsstop -->
 
 # Changelog
+
+* [0.5.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.0)
+  * Automatically import other files (thanks to [@eswarasai](https://github.com/eswarasai)).
+  * Fix minor issue when picking Solidty version (thanks to [@eswarasai](https://github.com/eswarasai)).
+  * Fix issue count (thanks to [@tagomaru](https://github.com/tagomaru)).
 
 * [0.4.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.4.1)
   * Update npm dependencies
