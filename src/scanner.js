@@ -1,6 +1,12 @@
 const fs = require('fs');
 const armlet = require('armlet');
 
+/* Dynamic linking is not supported. */
+
+const regex = new RegExp(/__\$\w+\$__/, 'g');
+const address = '0000000000000000000000000000000000000000';
+const replaceLinkedLibs = byteCode => byteCode.replace(regex, address);
+
 module.exports.Scanner = class Scanner {
   constructor(mythxAddress, mythxpassword) {
     this.client = new armlet.Client({
@@ -9,24 +15,20 @@ module.exports.Scanner = class Scanner {
     })
   }
 
-  async fakeRun() {
-    return {}
-  }
-
   async run(compiled, contractFile, contractName, timeout, analysisMode) {
     let contractData = compiled.contracts[contractFile][contractName];
     timeout = timeout * 1000;
 
-    const contractSource = fs.readFileSync(contractFile, { encoding: 'utf-8' })
+    const contractSource = fs.readFileSync(contractFile, { encoding: 'utf-8' });
 
     const data = {
       contractName: contractName,
       abi: contractData['abi'],
       //
-      bytecode: contractData['evm']['bytecode']['object'],
+      bytecode: replaceLinkedLibs(contractData['evm']['bytecode']['object']),
       sourceMap: contractData['evm']['bytecode']['sourceMap'],
       //
-      deployedBytecode: contractData['evm']['deployedBytecode']['object'],
+      deployedBytecode: replaceLinkedLibs(contractData['evm']['deployedBytecode']['object']),
       deployedSourceMap: contractData['evm']['deployedBytecode']['sourceMap'],
       sourceList: [
         contractFile
@@ -52,4 +54,4 @@ module.exports.Scanner = class Scanner {
       })
     });
   }
-}
+};
