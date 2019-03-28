@@ -11,32 +11,32 @@
   },
   "dependencies": {
     "@oclif/command": "^1.5.12",
-    "@oclif/config": "^1.12.10",
+    "@oclif/config": "^1.12.11",
     "@oclif/plugin-help": "^2.1.6",
     "@types/request-promise": "^4.1.42",
     "armlet": "^2.3.0",
     "cli-ux": "^5.2.1",
     "globby": "^8.0.2",
-    "remix-lib": "^0.4.1",
+    "remix-lib": "^0.4.2",
     "request-promise": "^4.2.4",
-    "solc": "^0.5.6",
+    "solc": "^0.5.7",
     "solidity-parser-antlr": "^0.4.2",
     "tslib": "^1.9.3"
   },
   "devDependencies": {
-    "@oclif/dev-cli": "^1.21.3",
+    "@oclif/dev-cli": "^1.22.0",
     "@oclif/test": "^1.2.4",
     "@oclif/tslint": "^3.1.1",
     "@types/chai": "^4.1.7",
     "@types/mocha": "^5.2.6",
-    "@types/node": "^10.14.1",
+    "@types/node": "^10.14.4",
     "chai": "^4.2.0",
-    "eslint": "^5.15.2",
+    "eslint": "^5.15.3",
     "mocha": "^5.2.0",
     "nyc": "^13.3.0",
     "ts-node": "^8.0.3",
     "tslint": "^5.14.0",
-    "typescript": "^3.3.3333"
+    "typescript": "^3.3.4000"
   },
   "engines": {
     "node": ">=8.0.0"

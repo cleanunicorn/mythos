@@ -163,6 +163,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
+* [0.5.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.0)
+  * Fix dynamic linking issue (thanks to [@eswarasai](https://github.com/eswarasai)).
+
 * [0.5.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.0)
   * Automatically import other files (thanks to [@eswarasai](https://github.com/eswarasai)).
   * Fix minor issue when picking Solidty version (thanks to [@eswarasai](https://github.com/eswarasai)).
