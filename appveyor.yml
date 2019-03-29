@@ -2,15 +2,15 @@ environment:
   nodejs_version: "9"
 cache:
   - '%AppData%\npm-cache -> appveyor.yml'
-  - node_modules -> package-lock.json
+  - node_modules -> yarn.lock
 
 install:
   - ps: Install-Product node $env:nodejs_version x64
-  - npm install
+  - yarn
 test_script:
   - .\bin\run --version
   - .\bin\run --help
-  - npm test
+  - ./node_modules/.bin/nyc npm test
 
 after_test:
   - .\node_modules\.bin\nyc report --reporter text-lcov > coverage.lcov
