@@ -74,7 +74,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.5.1 linux-x64 node-v11.12.0
+@cleanunicorn/mythos/0.5.2 linux-x64 node-v11.12.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -115,7 +115,7 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.5.1/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.5.2/src/commands/analyze.ts)_
 
 ## `mythos get-analysis UUID`
 
@@ -134,7 +134,7 @@ OPTIONS
   --mythxPassword=mythxPassword      (required)
 ```
 
-_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.5.1/src/commands/get-analysis.ts)_
+_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.5.2/src/commands/get-analysis.ts)_
 
 ## `mythos help [COMMAND]`
 
