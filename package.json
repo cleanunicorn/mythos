@@ -65,11 +65,11 @@
     "url": "git+https://github.com/cleanunicorn/mythos.git"
   },
   "scripts": {
-    "postpack": "rm -f oclif.manifest.json",
+    "pretest": "tsc --skipLibCheck test/**.test.ts",
+    "test": "mocha --no-timeouts",
     "posttest": "tslint -p test -t stylish",
     "prepack": "rm -rf lib && tsc --skipLibCheck && cp src/scanner.js lib/ && oclif-dev manifest && oclif-dev readme",
-    "pretest": "tsc --skipLibCheck test/**/**.test.ts",
-    "test": "mocha --no-timeouts",
+    "postpack": "rm -f oclif.manifest.json",
     "version": "oclif-dev readme && git add README.md"
   },
   "types": "lib/index.d.ts",
