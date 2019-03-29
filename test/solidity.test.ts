@@ -39,7 +39,7 @@ describe('compiler', () => {
         name: 'Vulnerable',
         contractFile: 'test/contracts/vulnerable.sol',
         contractName: 'Vulnerable',
-      }
+      },
     ]
 
     const c = new Compiler()
@@ -47,6 +47,7 @@ describe('compiler', () => {
     for (let t of testData) {
       const contractFileContent = fs.readFileSync(t.contractFile, {encoding: 'utf-8'})
       let compiled = await c.solidity(t.contractFile, contractFileContent, undefined)
+
       let compiledJSON = JSON.stringify(compiled, undefined, 2)
       if (generateGoldenFiles) {
         fs.writeFileSync(`test/golden/${t.name}.golden.json`, compiledJSON, {encoding: 'utf-8'})
