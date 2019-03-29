@@ -9,7 +9,6 @@ A CLI client for MythX
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c13f68494414f5fb60b10cc30a6acbc)](https://www.codacy.com/app/lucadanielcostin/mythos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/cleanunicorn/mythos/tree/master.svg?style=shield)](https://circleci.com/gh/cleanunicorn/mythos)
-[![Build status](https://ci.appveyor.com/api/projects/status/nverbd397m2w9qlp/branch/master?svg=true)](https://ci.appveyor.com/project/cleanunicorn/mythos/branch/master)
 
 <!-- toc -->
 * [Installation](#installation)
@@ -157,7 +156,10 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
-* [0.5.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.0)
+* [0.5.2](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.2)
+  * Setup automatic tests
+
+* [0.5.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.1)
   * Fix dynamic linking issue (thanks to [@eswarasai](https://github.com/eswarasai)).
 
 * [0.5.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.0)

@@ -1,6 +1,0 @@
-linters:
-  tslint: { "tslint:recommended" }
-files:
-  ignore:
-    - 'bower_components/*'
-    - 'node_modules/*'
