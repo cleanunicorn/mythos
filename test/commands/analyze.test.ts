@@ -6,7 +6,11 @@ let chai = require('chai')
 chai.config.truncateThreshold = 0
 let assert = chai.assert
 
-let generateGoldenFiles = true
+let generateGoldenFiles = (process.env.GENERATE_GOLDEN === 'true')
+if (generateGoldenFiles) {
+  // tslint:disable-next-line: no-console
+  console.log('Generating golden files')
+}
 
 describe('analyze', () => {
   it('test', async () => {
