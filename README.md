@@ -83,15 +83,9 @@ USAGE
 <!-- usagestop -->
 # Commands
 <!-- commands -->
-- [mythos](#mythos)
-- [Installation](#installation)
-- [Usage](#usage)
-  - [Basic usage](#basic-usage)
-- [Commands](#commands)
-  - [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
-  - [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
-  - [`mythos help [COMMAND]`](#mythos-help-command)
-- [Changelog](#changelog)
+* [`mythos analyze CONTRACTFILE CONTRACTNAME`](#mythos-analyze-contractfile-contractname)
+* [`mythos get-analysis UUID`](#mythos-get-analysis-uuid)
+* [`mythos help [COMMAND]`](#mythos-help-command)
 
 ## `mythos analyze CONTRACTFILE CONTRACTNAME`
 
