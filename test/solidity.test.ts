@@ -16,9 +16,29 @@ describe('compiler', () => {
   it('successfully compiles Solidity contracts', async () => {
     let testData = [
       {
+        name: 'Empty',
+        contractFile: 'test/contracts/empty.sol',
+        contractName: 'Empty',
+      },
+      {
+        name: 'Import',
+        contractFile: 'test/contracts/import.sol',
+        contractName: 'Import',
+      },
+      {
+        name: 'No Pragma',
+        contractFile: 'test/contracts/no-pragma.sol',
+        contractName: 'NoPragma',
+      },
+      {
         name: 'Version Interval',
         contractFile: 'test/contracts/version-interval.sol',
         contractName: 'VersionInterval',
+      },
+      {
+        name: 'Vulnerable',
+        contractFile: 'test/contracts/vulnerable.sol',
+        contractName: 'Vulnerable',
       }
     ]
 
@@ -32,8 +52,8 @@ describe('compiler', () => {
         fs.writeFileSync(`test/golden/${t.name}.golden.json`, compiledJSON, {encoding: 'utf-8'})
       }
       let expected = fs.readFileSync(`test/golden/${t.name}.golden.json`, {encoding: 'utf-8'})
-      assert.equal(expected, compiledJSON)
-    }
 
+      assert.equal(expected, compiledJSON, `${t.name} failed`)
+    }
   })
 })
