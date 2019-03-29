@@ -18,7 +18,7 @@ jobs:
       - run: ./bin/run --help
       - run:
           name: Testing
-          command: npm test
+          command: ./node_modules/.bin/nyc npm test
       - run:
           name: Submitting code coverage to codecov
           command: |
