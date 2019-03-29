@@ -99,3 +99,6 @@ typings/
 #
 issues.json
 compiled.json
+
+# Typescript compiled files
+*.test.js
