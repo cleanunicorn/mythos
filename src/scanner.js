@@ -3,14 +3,14 @@ const armlet = require('armlet');
 
 /* Dynamic linking is not supported. */
 
-const regex = new RegExp(/__\$\w+\$__/, 'g');
+const regex = new RegExp(/__.*__/, 'g');
 const address = '0000000000000000000000000000000000000000';
 const replaceLinkedLibs = byteCode => byteCode.replace(regex, address);
 
 module.exports.Scanner = class Scanner {
-  constructor(mythxAddress, mythxpassword) {
+  constructor(mythxAddress, mythxPassword) {
     this.client = new armlet.Client({
-      password: mythxpassword,
+      password: mythxPassword,
       ethAddress: mythxAddress,
     })
   }
@@ -41,8 +41,10 @@ module.exports.Scanner = class Scanner {
       analysisMode,
     };
 
+    // console.log(JSON.stringify(data))
+
     return new Promise((resolve, reject) => {
-      this.client.analyze({
+      this.client.analyzeWithStatus({
         data,
         timeout,
         clientToolName: "mythos",

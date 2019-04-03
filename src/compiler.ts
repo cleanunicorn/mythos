@@ -5,6 +5,8 @@ import * as request from 'request-promise'
 import * as solc from 'solc'
 import * as parser from 'solidity-parser-antlr'
 
+const path = require('path')
+
 const getFileContent = (filepath: string) => {
   const stats = fs.statSync(filepath)
 
@@ -25,10 +27,10 @@ const findImports = (pathName: string) => {
 
 export class Compiler {
   async solidity(fileName: string, fileContents: string, version: string | undefined) {
-    let input = {
+    let input: any = {
       language: 'Solidity',
       sources: {
-        [fileName]: {
+        inputfile: {
           content: fileContents,
         },
       },
@@ -37,9 +39,54 @@ export class Compiler {
           '*': {
             '*': ['*']
           }
+        },
+        optimizer: {
+          enabled: true,
+          runs: 200
         }
       }
     }
+
+    let sourceList: string[] = []
+
+    const getImportPaths = (source: string) => {
+      let matches = []
+      let ir = /^(.*import){1}(.+){0,1}\s['"](.+)['"];/gm
+      let match = null
+
+      while ((match = ir.exec(source))) {
+        matches.push(match[3])
+      }
+
+      return matches
+    }
+
+    const removeRelativePathFromUrl = (url: string) => url.replace(/^.+\.\//, '').replace('./', '')
+
+    const parseImports = (dir:string, filepath:string, updateSourcePath:boolean) => {
+      try {
+        const relativeFilePath = path.join(dir, filepath);
+        const relativeFileDir = path.dirname(relativeFilePath);
+
+        if (fs.existsSync(relativeFilePath)) {
+          const content = fs.readFileSync(relativeFilePath).toString();
+          const imports = getImportPaths(content);
+          imports.map(p => parseImports(relativeFileDir, p, !(p.startsWith('./') && filepath.startsWith('./'))));
+
+          let sourceUrl = removeRelativePathFromUrl(filepath);
+          if (updateSourcePath && filepath.startsWith('./')) {
+            sourceUrl = relativeFileDir.split(path.sep).pop() + '/' + sourceUrl;
+          }
+
+          if (sourceList.indexOf(sourceUrl) === -1) {
+            sourceList.push(sourceUrl);
+            input.sources[sourceUrl] = {content};
+          }
+        }
+      } catch(err) {
+        throw new Error(`Import ${filepath} not found`);
+      }
+    };
 
     // Get the solc string from https://ethereum.github.io/solc-bin/bin/list.txt
     let solcVersion = 'latest'
