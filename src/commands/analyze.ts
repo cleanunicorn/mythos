@@ -67,8 +67,9 @@ export default class Analyze extends Command {
     cli.action.start(`Compiling contract ${contractFile}`)
     const c = new Compiler()
     let compiled
+    let importedFiles
     try {
-      compiled = await c.solidity(contractFile, contractFileContent, solcVersion)
+      ({compiled, importedFiles} = await c.solidity(contractFile, contractFileContent, solcVersion))
     } catch (error) {
       if (error.message !== undefined) {
         cli.info(error.message)
@@ -88,7 +89,7 @@ export default class Analyze extends Command {
     let issues
     const scanner = new Scanner(mythxAddress, mythxPassword)
     try {
-      issues = await scanner.run(compiled, contractFile, contractName, timeout, analysisMode)
+      issues = await scanner.run({compiled, contractFile, importedFiles, contractName, timeout, analysisMode})
       cli.action.stop('done')
     } catch (error) {
       this.error(error)

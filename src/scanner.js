@@ -15,7 +15,7 @@ module.exports.Scanner = class Scanner {
     })
   }
 
-  async run(compiled, contractFile, contractName, timeout, analysisMode) {
+  async run({compiled, contractFile, contractName, importedFiles, timeout, analysisMode}) {
     let contractData = compiled.contracts[contractFile][contractName];
     timeout = timeout * 1000;
 
@@ -30,9 +30,7 @@ module.exports.Scanner = class Scanner {
       //
       deployedBytecode: replaceLinkedLibs(contractData['evm']['deployedBytecode']['object']),
       deployedSourceMap: contractData['evm']['deployedBytecode']['sourceMap'],
-      sourceList: [
-        contractFile
-      ],
+      sourceList: importedFiles,
       sources: {
         [contractFile]: {
           source: contractSource,
@@ -41,15 +39,13 @@ module.exports.Scanner = class Scanner {
       analysisMode,
     };
 
-    // console.log(JSON.stringify(data))
-
     return new Promise((resolve, reject) => {
       this.client.analyzeWithStatus({
         data,
         timeout,
         clientToolName: "mythos",
       }).then(issues => {
-        fs.writeFileSync('./issues.json', JSON.stringify(issues, null, 4), 'utf-8');
+        fs.writeFileSync(`./issues-${issues.status.uuid}.json`, JSON.stringify(issues, null, 4), 'utf-8');
         resolve(issues);
       }).catch(err => {
         reject(err);

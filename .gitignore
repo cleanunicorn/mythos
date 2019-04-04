@@ -97,6 +97,7 @@ typings/
 
 #
 issues.json
+issues-*.json
 compiled.json
 
 # Typescript compiled files
