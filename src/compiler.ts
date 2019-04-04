@@ -42,10 +42,6 @@ export class Compiler {
           '*': {
             '*': ['*']
           }
-        },
-        optimizer: {
-          enabled: true,
-          runs: 200
         }
       }
     }

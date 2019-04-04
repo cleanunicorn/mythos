@@ -41,29 +41,29 @@
             "methods": {}
           },
           "evm": {
-            "assembly": "    /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n  mstore(0x40, 0x80)\n    /* \"test/contracts/vulnerable.sol\":70:75  2^250 */\n  0xf8\n    /* \"test/contracts/vulnerable.sol\":51:75  uint256 public n = 2^250 */\n  0x00\n  sstore\n    /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n  callvalue\n    /* \"--CODEGEN--\":8:17   */\n  dup1\n    /* \"--CODEGEN--\":5:7   */\n  iszero\n  tag_1\n  jumpi\n    /* \"--CODEGEN--\":30:31   */\n  0x00\n    /* \"--CODEGEN--\":27:28   */\n  dup1\n    /* \"--CODEGEN--\":20:32   */\n  revert\n    /* \"--CODEGEN--\":5:7   */\ntag_1:\n    /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n      mstore(0x40, 0x80)\n      callvalue\n        /* \"--CODEGEN--\":8:17   */\n      dup1\n        /* \"--CODEGEN--\":5:7   */\n      iszero\n      tag_1\n      jumpi\n        /* \"--CODEGEN--\":30:31   */\n      0x00\n        /* \"--CODEGEN--\":27:28   */\n      dup1\n        /* \"--CODEGEN--\":20:32   */\n      revert\n        /* \"--CODEGEN--\":5:7   */\n    tag_1:\n        /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n      pop\n      jumpi(tag_2, lt(calldatasize, 0x04))\n      div(calldataload(0x00), 0x0100000000000000000000000000000000000000000000000000000000)\n      0x0dbe671f\n      dup2\n      eq\n      tag_3\n      jumpi\n      dup1\n      0x26121ff0\n      eq\n      tag_4\n      jumpi\n      dup1\n      0x2e52d606\n      eq\n      tag_5\n      jumpi\n    tag_2:\n      0x00\n      dup1\n      revert\n        /* \"test/contracts/vulnerable.sol\":149:195  function a() public {... */\n    tag_3:\n      tag_6\n      tag_7\n      jump\t// in\n    tag_6:\n      stop\n        /* \"test/contracts/vulnerable.sol\":82:143  function f() public {... */\n    tag_4:\n      tag_6\n      tag_9\n      jump\t// in\n        /* \"test/contracts/vulnerable.sol\":51:75  uint256 public n = 2^250 */\n    tag_5:\n      tag_10\n      tag_11\n      jump\t// in\n    tag_10:\n      0x40\n      dup1\n      mload\n      swap2\n      dup3\n      mstore\n      mload\n      swap1\n      dup2\n      swap1\n      sub\n      0x20\n      add\n      swap1\n      return\n        /* \"test/contracts/vulnerable.sol\":149:195  function a() public {... */\n    tag_7:\n        /* \"test/contracts/vulnerable.sol\":183:184  n */\n      0x00\n      dup1\n      sload\n        /* \"test/contracts/vulnerable.sol\":187:188  2 */\n      0x02\n        /* \"test/contracts/vulnerable.sol\":183:188  n * 2 */\n      mul\n        /* \"test/contracts/vulnerable.sol\":179:188  n = n * 2 */\n      swap1\n      sstore\n        /* \"test/contracts/vulnerable.sol\":149:195  function a() public {... */\n      jump\t// out\n        /* \"test/contracts/vulnerable.sol\":82:143  function f() public {... */\n    tag_9:\n        /* \"test/contracts/vulnerable.sol\":125:135  msg.sender */\n      caller\n        /* \"test/contracts/vulnerable.sol\":112:136  selfdestruct(msg.sender) */\n      selfdestruct\n        /* \"test/contracts/vulnerable.sol\":51:75  uint256 public n = 2^250 */\n    tag_11:\n      sload(0x00)\n      dup2\n      jump\t// out\n\n    auxdata: 0xa165627a7a723058204988718b74ae76ce71d4c4f2de8e5419a25f1c257569ceb2bf092012fc17d2f60029\n}\n",
+            "assembly": "    /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n  mstore(0x40, 0x80)\n    /* \"test/contracts/vulnerable.sol\":70:75  2^250 */\n  0xf8\n    /* \"test/contracts/vulnerable.sol\":51:75  uint256 public n = 2^250 */\n  0x00\n  sstore\n    /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n  callvalue\n    /* \"--CODEGEN--\":8:17   */\n  dup1\n    /* \"--CODEGEN--\":5:7   */\n  iszero\n  tag_1\n  jumpi\n    /* \"--CODEGEN--\":30:31   */\n  0x00\n    /* \"--CODEGEN--\":27:28   */\n  dup1\n    /* \"--CODEGEN--\":20:32   */\n  revert\n    /* \"--CODEGEN--\":5:7   */\ntag_1:\n    /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n      mstore(0x40, 0x80)\n      callvalue\n        /* \"--CODEGEN--\":8:17   */\n      dup1\n        /* \"--CODEGEN--\":5:7   */\n      iszero\n      tag_1\n      jumpi\n        /* \"--CODEGEN--\":30:31   */\n      0x00\n        /* \"--CODEGEN--\":27:28   */\n      dup1\n        /* \"--CODEGEN--\":20:32   */\n      revert\n        /* \"--CODEGEN--\":5:7   */\n    tag_1:\n        /* \"test/contracts/vulnerable.sol\":25:197  contract Vulnerable {... */\n      pop\n      jumpi(tag_2, lt(calldatasize, 0x04))\n      calldataload(0x00)\n      0x0100000000000000000000000000000000000000000000000000000000\n      swap1\n      div\n      dup1\n      0x0dbe671f\n      eq\n      tag_3\n      jumpi\n      dup1\n      0x26121ff0\n      eq\n      tag_4\n      jumpi\n      dup1\n      0x2e52d606\n      eq\n      tag_5\n      jumpi\n    tag_2:\n      0x00\n      dup1\n      revert\n        /* \"test/contracts/vulnerable.sol\":149:195  function a() public {... */\n    tag_3:\n      tag_6\n      tag_7\n      jump\t// in\n    tag_6:\n      stop\n        /* \"test/contracts/vulnerable.sol\":82:143  function f() public {... */\n    tag_4:\n      tag_8\n      tag_9\n      jump\t// in\n    tag_8:\n      stop\n        /* \"test/contracts/vulnerable.sol\":51:75  uint256 public n = 2^250 */\n    tag_5:\n      tag_10\n      tag_11\n      jump\t// in\n    tag_10:\n      mload(0x40)\n      dup1\n      dup3\n      dup2\n      mstore\n      0x20\n      add\n      swap2\n      pop\n      pop\n      mload(0x40)\n      dup1\n      swap2\n      sub\n      swap1\n      return\n        /* \"test/contracts/vulnerable.sol\":149:195  function a() public {... */\n    tag_7:\n        /* \"test/contracts/vulnerable.sol\":187:188  2 */\n      0x02\n        /* \"test/contracts/vulnerable.sol\":183:184  n */\n      sload(0x00)\n        /* \"test/contracts/vulnerable.sol\":183:188  n * 2 */\n      mul\n        /* \"test/contracts/vulnerable.sol\":179:180  n */\n      0x00\n        /* \"test/contracts/vulnerable.sol\":179:188  n = n * 2 */\n      dup2\n      swap1\n      sstore\n      pop\n        /* \"test/contracts/vulnerable.sol\":149:195  function a() public {... */\n      jump\t// out\n        /* \"test/contracts/vulnerable.sol\":82:143  function f() public {... */\n    tag_9:\n        /* \"test/contracts/vulnerable.sol\":125:135  msg.sender */\n      caller\n        /* \"test/contracts/vulnerable.sol\":112:136  selfdestruct(msg.sender) */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      selfdestruct\n        /* \"test/contracts/vulnerable.sol\":51:75  uint256 public n = 2^250 */\n    tag_11:\n      sload(0x00)\n      dup2\n      jump\t// out\n\n    auxdata: 0xa165627a7a72305820f7fdfc95a4390f6770dc57f6ea10287a71da157412318f947844d5b1469d4cbf0029\n}\n",
             "bytecode": {
               "linkReferences": {},
-              "object": "608060405260f860005534801561001557600080fd5b5060c3806100246000396000f3fe6080604052348015600f57600080fd5b50600436106058577c010000000000000000000000000000000000000000000000000000000060003504630dbe671f8114605d57806326121ff01460655780632e52d60614606b575b600080fd5b60636083565b005b6063608e565b60716091565b60408051918252519081900360200190f35b600080546002029055565b33ff5b6000548156fea165627a7a723058204988718b74ae76ce71d4c4f2de8e5419a25f1c257569ceb2bf092012fc17d2f60029",
-              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0xF8 PUSH1 0x0 SSTORE CALLVALUE DUP1 ISZERO PUSH2 0x15 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0xC3 DUP1 PUSH2 0x24 PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x58 JUMPI PUSH29 0x100000000000000000000000000000000000000000000000000000000 PUSH1 0x0 CALLDATALOAD DIV PUSH4 0xDBE671F DUP2 EQ PUSH1 0x5D JUMPI DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x65 JUMPI DUP1 PUSH4 0x2E52D606 EQ PUSH1 0x6B JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x63 PUSH1 0x83 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x63 PUSH1 0x8E JUMP JUMPDEST PUSH1 0x71 PUSH1 0x91 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x2 MUL SWAP1 SSTORE JUMP JUMPDEST CALLER SELFDESTRUCT JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP INVALID LOG1 PUSH6 0x627A7A723058 KECCAK256 0x49 DUP9 PUSH18 0x8B74AE76CE71D4C4F2DE8E5419A25F1C2575 PUSH10 0xCEB2BF092012FC17D2F6 STOP 0x29 ",
+              "object": "608060405260f860005534801561001557600080fd5b5060e3806100246000396000f3fe6080604052348015600f57600080fd5b50600436106059576000357c0100000000000000000000000000000000000000000000000000000000900480630dbe671f14605e57806326121ff01460665780632e52d60614606e575b600080fd5b6064608a565b005b606c6098565b005b607460b1565b6040518082815260200191505060405180910390f35b600260005402600081905550565b3373ffffffffffffffffffffffffffffffffffffffff16ff5b6000548156fea165627a7a72305820f7fdfc95a4390f6770dc57f6ea10287a71da157412318f947844d5b1469d4cbf0029",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0xF8 PUSH1 0x0 SSTORE CALLVALUE DUP1 ISZERO PUSH2 0x15 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0xE3 DUP1 PUSH2 0x24 PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x59 JUMPI PUSH1 0x0 CALLDATALOAD PUSH29 0x100000000000000000000000000000000000000000000000000000000 SWAP1 DIV DUP1 PUSH4 0xDBE671F EQ PUSH1 0x5E JUMPI DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x66 JUMPI DUP1 PUSH4 0x2E52D606 EQ PUSH1 0x6E JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x64 PUSH1 0x8A JUMP JUMPDEST STOP JUMPDEST PUSH1 0x6C PUSH1 0x98 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x74 PUSH1 0xB1 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 DUP3 DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH1 0x2 PUSH1 0x0 SLOAD MUL PUSH1 0x0 DUP2 SWAP1 SSTORE POP JUMP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP INVALID LOG1 PUSH6 0x627A7A723058 KECCAK256 0xf7 REVERT 0xfc SWAP6 LOG4 CODECOPY 0xf PUSH8 0x70DC57F6EA10287A PUSH18 0xDA157412318F947844D5B1469D4CBF002900 ",
               "sourceMap": "25:172:0:-;;;70:5;51:24;;25:172;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:172:0;;;;;;;"
             },
             "deployedBytecode": {
               "linkReferences": {},
-              "object": "6080604052348015600f57600080fd5b50600436106058577c010000000000000000000000000000000000000000000000000000000060003504630dbe671f8114605d57806326121ff01460655780632e52d60614606b575b600080fd5b60636083565b005b6063608e565b60716091565b60408051918252519081900360200190f35b600080546002029055565b33ff5b6000548156fea165627a7a723058204988718b74ae76ce71d4c4f2de8e5419a25f1c257569ceb2bf092012fc17d2f60029",
-              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x58 JUMPI PUSH29 0x100000000000000000000000000000000000000000000000000000000 PUSH1 0x0 CALLDATALOAD DIV PUSH4 0xDBE671F DUP2 EQ PUSH1 0x5D JUMPI DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x65 JUMPI DUP1 PUSH4 0x2E52D606 EQ PUSH1 0x6B JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x63 PUSH1 0x83 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x63 PUSH1 0x8E JUMP JUMPDEST PUSH1 0x71 PUSH1 0x91 JUMP JUMPDEST PUSH1 0x40 DUP1 MLOAD SWAP2 DUP3 MSTORE MLOAD SWAP1 DUP2 SWAP1 SUB PUSH1 0x20 ADD SWAP1 RETURN JUMPDEST PUSH1 0x0 DUP1 SLOAD PUSH1 0x2 MUL SWAP1 SSTORE JUMP JUMPDEST CALLER SELFDESTRUCT JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP INVALID LOG1 PUSH6 0x627A7A723058 KECCAK256 0x49 DUP9 PUSH18 0x8B74AE76CE71D4C4F2DE8E5419A25F1C2575 PUSH10 0xCEB2BF092012FC17D2F6 STOP 0x29 ",
-              "sourceMap": "25:172:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:172:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;149:46;;;:::i;:::-;;82:61;;;:::i;51:24::-;;;:::i;:::-;;;;;;;;;;;;;;;;149:46;183:1;;;187;183:5;179:9;;149:46::o;82:61::-;125:10;112:24;51;;;;:::o"
+              "object": "6080604052348015600f57600080fd5b50600436106059576000357c0100000000000000000000000000000000000000000000000000000000900480630dbe671f14605e57806326121ff01460665780632e52d60614606e575b600080fd5b6064608a565b005b606c6098565b005b607460b1565b6040518082815260200191505060405180910390f35b600260005402600081905550565b3373ffffffffffffffffffffffffffffffffffffffff16ff5b6000548156fea165627a7a72305820f7fdfc95a4390f6770dc57f6ea10287a71da157412318f947844d5b1469d4cbf0029",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x59 JUMPI PUSH1 0x0 CALLDATALOAD PUSH29 0x100000000000000000000000000000000000000000000000000000000 SWAP1 DIV DUP1 PUSH4 0xDBE671F EQ PUSH1 0x5E JUMPI DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x66 JUMPI DUP1 PUSH4 0x2E52D606 EQ PUSH1 0x6E JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x64 PUSH1 0x8A JUMP JUMPDEST STOP JUMPDEST PUSH1 0x6C PUSH1 0x98 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x74 PUSH1 0xB1 JUMP JUMPDEST PUSH1 0x40 MLOAD DUP1 DUP3 DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x40 MLOAD DUP1 SWAP2 SUB SWAP1 RETURN JUMPDEST PUSH1 0x2 PUSH1 0x0 SLOAD MUL PUSH1 0x0 DUP2 SWAP1 SSTORE POP JUMP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT JUMPDEST PUSH1 0x0 SLOAD DUP2 JUMP INVALID LOG1 PUSH6 0x627A7A723058 KECCAK256 0xf7 REVERT 0xfc SWAP6 LOG4 CODECOPY 0xf PUSH8 0x70DC57F6EA10287A PUSH18 0xDA157412318F947844D5B1469D4CBF002900 ",
+              "sourceMap": "25:172:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;25:172:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;149:46;;;:::i;:::-;;82:61;;;:::i;:::-;;51:24;;;:::i;:::-;;;;;;;;;;;;;;;;;;;149:46;187:1;183;;:5;179:1;:9;;;;149:46::o;82:61::-;125:10;112:24;;;51;;;;:::o"
             },
             "gasEstimates": {
               "creation": {
-                "codeDepositCost": "39000",
-                "executionCost": "20099",
-                "totalCost": "59099"
+                "codeDepositCost": "45400",
+                "executionCost": "20105",
+                "totalCost": "65505"
               },
               "external": {
-                "a()": "20341",
-                "f()": "30139",
-                "n()": "422"
+                "a()": "20349",
+                "f()": "30148",
+                "n()": "432"
               }
             },
             "legacyAssembly": {
@@ -202,7 +202,7 @@
               ],
               ".data": {
                 "0": {
-                  ".auxdata": "a165627a7a723058204988718b74ae76ce71d4c4f2de8e5419a25f1c257569ceb2bf092012fc17d2f60029",
+                  ".auxdata": "a165627a7a72305820f7fdfc95a4390f6770dc57f6ea10287a71da157412318f947844d5b1469d4cbf0029",
                   ".code": [
                     {
                       "begin": 25,
@@ -310,12 +310,6 @@
                       "begin": 25,
                       "end": 197,
                       "name": "PUSH",
-                      "value": "100000000000000000000000000000000000000000000000000000000"
-                    },
-                    {
-                      "begin": 25,
-                      "end": 197,
-                      "name": "PUSH",
                       "value": "0"
                     },
                     {
@@ -326,18 +320,29 @@
                     {
                       "begin": 25,
                       "end": 197,
+                      "name": "PUSH",
+                      "value": "100000000000000000000000000000000000000000000000000000000"
+                    },
+                    {
+                      "begin": 25,
+                      "end": 197,
+                      "name": "SWAP1"
+                    },
+                    {
+                      "begin": 25,
+                      "end": 197,
                       "name": "DIV"
+                    },
+                    {
+                      "begin": 25,
+                      "end": 197,
+                      "name": "DUP1"
                     },
                     {
                       "begin": 25,
                       "end": 197,
                       "name": "PUSH",
                       "value": "DBE671F"
-                    },
-                    {
-                      "begin": 25,
-                      "end": 197,
-                      "name": "DUP2"
                     },
                     {
                       "begin": 25,
@@ -496,7 +501,7 @@
                       "begin": 82,
                       "end": 143,
                       "name": "PUSH [tag]",
-                      "value": "6"
+                      "value": "8"
                     },
                     {
                       "begin": 82,
@@ -509,6 +514,22 @@
                       "end": 143,
                       "name": "JUMP",
                       "value": "[in]"
+                    },
+                    {
+                      "begin": 82,
+                      "end": 143,
+                      "name": "tag",
+                      "value": "8"
+                    },
+                    {
+                      "begin": 82,
+                      "end": 143,
+                      "name": "JUMPDEST"
+                    },
+                    {
+                      "begin": 82,
+                      "end": 143,
+                      "name": "STOP"
                     },
                     {
                       "begin": 51,
@@ -559,17 +580,12 @@
                     {
                       "begin": 51,
                       "end": 75,
-                      "name": "DUP1"
-                    },
-                    {
-                      "begin": 51,
-                      "end": 75,
                       "name": "MLOAD"
                     },
                     {
                       "begin": 51,
                       "end": 75,
-                      "name": "SWAP2"
+                      "name": "DUP1"
                     },
                     {
                       "begin": 51,
@@ -579,32 +595,12 @@
                     {
                       "begin": 51,
                       "end": 75,
-                      "name": "MSTORE"
-                    },
-                    {
-                      "begin": 51,
-                      "end": 75,
-                      "name": "MLOAD"
-                    },
-                    {
-                      "begin": 51,
-                      "end": 75,
-                      "name": "SWAP1"
-                    },
-                    {
-                      "begin": 51,
-                      "end": 75,
                       "name": "DUP2"
                     },
                     {
                       "begin": 51,
                       "end": 75,
-                      "name": "SWAP1"
-                    },
-                    {
-                      "begin": 51,
-                      "end": 75,
-                      "name": "SUB"
+                      "name": "MSTORE"
                     },
                     {
                       "begin": 51,
@@ -616,6 +612,47 @@
                       "begin": 51,
                       "end": 75,
                       "name": "ADD"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "SWAP2"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "POP"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "POP"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "PUSH",
+                      "value": "40"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "MLOAD"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "DUP1"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "SWAP2"
+                    },
+                    {
+                      "begin": 51,
+                      "end": 75,
+                      "name": "SUB"
                     },
                     {
                       "begin": 51,
@@ -639,6 +676,12 @@
                       "name": "JUMPDEST"
                     },
                     {
+                      "begin": 187,
+                      "end": 188,
+                      "name": "PUSH",
+                      "value": "2"
+                    },
+                    {
                       "begin": 183,
                       "end": 184,
                       "name": "PUSH",
@@ -647,23 +690,23 @@
                     {
                       "begin": 183,
                       "end": 184,
-                      "name": "DUP1"
-                    },
-                    {
-                      "begin": 183,
-                      "end": 184,
                       "name": "SLOAD"
-                    },
-                    {
-                      "begin": 187,
-                      "end": 188,
-                      "name": "PUSH",
-                      "value": "2"
                     },
                     {
                       "begin": 183,
                       "end": 188,
                       "name": "MUL"
+                    },
+                    {
+                      "begin": 179,
+                      "end": 180,
+                      "name": "PUSH",
+                      "value": "0"
+                    },
+                    {
+                      "begin": 179,
+                      "end": 188,
+                      "name": "DUP2"
                     },
                     {
                       "begin": 179,
@@ -674,6 +717,11 @@
                       "begin": 179,
                       "end": 188,
                       "name": "SSTORE"
+                    },
+                    {
+                      "begin": 179,
+                      "end": 188,
+                      "name": "POP"
                     },
                     {
                       "begin": 149,
@@ -696,6 +744,17 @@
                       "begin": 125,
                       "end": 135,
                       "name": "CALLER"
+                    },
+                    {
+                      "begin": 112,
+                      "end": 136,
+                      "name": "PUSH",
+                      "value": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+                    },
+                    {
+                      "begin": 112,
+                      "end": 136,
+                      "name": "AND"
                     },
                     {
                       "begin": 112,
@@ -745,7 +804,7 @@
               "n()": "2e52d606"
             }
           },
-          "metadata": "{\"compiler\":{\"version\":\"0.5.3+commit.10d17f24\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"a\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"f\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"n\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"test/contracts/vulnerable.sol\":\"Vulnerable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"test/contracts/vulnerable.sol\":{\"keccak256\":\"0x3036e6836b6b270cf834c24665807c9581bd7fc890a4dc3126646fde7e91874b\",\"urls\":[\"bzzr://65e245004085b4b9cc5cc3a1e241f7106b8ce6d922207d058c026517368bcbdc\"]}},\"version\":1}",
+          "metadata": "{\"compiler\":{\"version\":\"0.5.3+commit.10d17f24\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":false,\"inputs\":[],\"name\":\"a\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":false,\"inputs\":[],\"name\":\"f\",\"outputs\":[],\"payable\":false,\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"n\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"test/contracts/vulnerable.sol\":\"Vulnerable\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"test/contracts/vulnerable.sol\":{\"keccak256\":\"0x3036e6836b6b270cf834c24665807c9581bd7fc890a4dc3126646fde7e91874b\",\"urls\":[\"bzzr://65e245004085b4b9cc5cc3a1e241f7106b8ce6d922207d058c026517368bcbdc\"]}},\"version\":1}",
           "userdoc": {
             "methods": {}
           }
