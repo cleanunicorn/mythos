@@ -158,7 +158,7 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 * [0.6.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.6.0)
   * Fix external lib import, it sends the library information to MythX
-  * Dump issues in a file of format issues-[uuid].json for later inspection
+  * Dump issues in a file as *issues-[uuid].json* for easy manual inspection
 
 * [0.5.2](https://github.com/cleanunicorn/mythos/releases/tag/v0.5.2)
   * Setup automatic tests
