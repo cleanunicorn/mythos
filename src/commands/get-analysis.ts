@@ -45,7 +45,7 @@ export default class GetResults extends Command {
     })
 
     // Check analysis status with UUID
-    cli.action.start(`Check analysis status: ${uuid}`)
+    cli.action.start(`Checking analysis status: ${uuid}`)
     try {
       const result = await client.getStatus(uuid)
       if (result.status !== 'Finished') {

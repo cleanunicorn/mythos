@@ -8,14 +8,14 @@ const address = '0000000000000000000000000000000000000000';
 const replaceLinkedLibs = byteCode => byteCode.replace(regex, address);
 
 module.exports.Scanner = class Scanner {
-  constructor(mythxAddress, mythxpassword) {
+  constructor(mythxAddress, mythxPassword) {
     this.client = new armlet.Client({
-      password: mythxpassword,
+      password: mythxPassword,
       ethAddress: mythxAddress,
     })
   }
 
-  async run(compiled, contractFile, contractName, timeout, analysisMode) {
+  async run({compiled, contractFile, contractName, importedFiles, timeout, analysisMode}) {
     let contractData = compiled.contracts[contractFile][contractName];
     timeout = timeout * 1000;
 
@@ -30,9 +30,7 @@ module.exports.Scanner = class Scanner {
       //
       deployedBytecode: replaceLinkedLibs(contractData['evm']['deployedBytecode']['object']),
       deployedSourceMap: contractData['evm']['deployedBytecode']['sourceMap'],
-      sourceList: [
-        contractFile
-      ],
+      sourceList: importedFiles,
       sources: {
         [contractFile]: {
           source: contractSource,
@@ -42,12 +40,12 @@ module.exports.Scanner = class Scanner {
     };
 
     return new Promise((resolve, reject) => {
-      this.client.analyze({
+      this.client.analyzeWithStatus({
         data,
         timeout,
         clientToolName: "mythos",
       }).then(issues => {
-        fs.writeFileSync('./issues.json', JSON.stringify(issues, null, 4), 'utf-8');
+        fs.writeFileSync(`./issues-${issues.status.uuid}.json`, JSON.stringify(issues, null, 4), 'utf-8');
         resolve(issues);
       }).catch(err => {
         reject(err);

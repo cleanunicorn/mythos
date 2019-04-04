@@ -9,6 +9,7 @@ const getFileContent = (filepath: string) => {
   const stats = fs.statSync(filepath)
 
   if (stats.isFile()) {
+    importedFiles.push(filepath)
     return fs.readFileSync(filepath).toString()
   } else {
     throw new Error(`File ${filepath} not found`)
@@ -23,9 +24,13 @@ const findImports = (pathName: string) => {
   }
 }
 
+let importedFiles: string[]
+
 export class Compiler {
   async solidity(fileName: string, fileContents: string, version: string | undefined) {
-    let input = {
+    importedFiles = []
+
+    let input: any = {
       language: 'Solidity',
       sources: {
         [fileName]: {
@@ -59,24 +64,26 @@ export class Compiler {
       })
     }
 
-    return new Promise((resolve, reject) => {
+    importedFiles.push(fileName)
+
+    return new Promise<any>((resolve, reject) => {
       cli.info(`Downloading Solidity version ${solcVersion}`)
       solc.loadRemoteVersion(solcVersion, (err, solcSnapshot) => {
         if (err) {
           reject(err)
         } else {
-          let output = JSON.parse(solcSnapshot.compile(JSON.stringify(input), findImports))
+          let compiled = JSON.parse(solcSnapshot.compile(JSON.stringify(input), findImports))
 
           // Reject if there are errors
-          if (output.errors !== undefined) {
-            for (let e of output.errors) {
+          if (compiled.errors !== undefined) {
+            for (let e of compiled.errors) {
               if (e.severity === 'error') {
-                reject(output)
+                reject(compiled)
               }
             }
           }
 
-          resolve(output)
+          resolve({compiled, importedFiles})
         }
       })
     })
