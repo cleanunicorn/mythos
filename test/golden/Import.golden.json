@@ -1084,7 +1084,6 @@
     }
   },
   "importedFiles": [
-    "test/contracts/empty.sol",
     "test/contracts/import.sol",
     "test/contracts/imported.sol"
   ]

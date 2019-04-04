@@ -442,9 +442,6 @@
     }
   },
   "importedFiles": [
-    "test/contracts/empty.sol",
-    "test/contracts/import.sol",
-    "test/contracts/imported.sol",
     "test/contracts/no-pragma.sol"
   ]
 }

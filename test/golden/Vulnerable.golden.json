@@ -759,11 +759,6 @@
     }
   },
   "importedFiles": [
-    "test/contracts/empty.sol",
-    "test/contracts/import.sol",
-    "test/contracts/imported.sol",
-    "test/contracts/no-pragma.sol",
-    "test/contracts/version-interval.sol",
     "test/contracts/vulnerable.sol"
   ]
 }

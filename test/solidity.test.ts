@@ -40,6 +40,11 @@ describe('compiler', () => {
         contractFile: 'test/contracts/vulnerable.sol',
         contractName: 'Vulnerable',
       },
+      {
+        name: 'Use External Library',
+        contractFile: 'test/contracts/use-external-lib.sol',
+        contractName: 'UseExternalLib',
+      }
     ]
 
     const c = new Compiler()

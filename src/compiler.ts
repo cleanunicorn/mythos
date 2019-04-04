@@ -24,10 +24,12 @@ const findImports = (pathName: string) => {
   }
 }
 
-let importedFiles: string[] = []
+let importedFiles: string[]
 
 export class Compiler {
   async solidity(fileName: string, fileContents: string, version: string | undefined) {
+    importedFiles = []
+
     let input: any = {
       language: 'Solidity',
       sources: {
