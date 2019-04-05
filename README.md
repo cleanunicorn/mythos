@@ -74,7 +74,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.6.0 linux-x64 node-v11.12.0
+@cleanunicorn/mythos/0.7.0 linux-x64 node-v11.13.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -115,7 +115,7 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.6.0/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.7.0/src/commands/analyze.ts)_
 
 ## `mythos get-analysis UUID`
 
@@ -134,7 +134,7 @@ OPTIONS
   --mythxPassword=mythxPassword      (required)
 ```
 
-_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.6.0/src/commands/get-analysis.ts)_
+_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.7.0/src/commands/get-analysis.ts)_
 
 ## `mythos help [COMMAND]`
 
@@ -155,6 +155,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 <!-- commandsstop -->
 
 # Changelog
+
+* [0.7.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.7.0)
+  * Send the AST when requesting an analysis
 
 * [0.6.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.6.0)
   * Fix external lib import, it sends the library information to MythX
