@@ -197,6 +197,46 @@
     },
     "sources": {
       "test/contracts/empty.sol": {
+        "ast": {
+          "absolutePath": "test/contracts/empty.sol",
+          "exportedSymbols": {
+            "Empty": [
+              2
+            ]
+          },
+          "id": 3,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.5",
+                ".3"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:0"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 2,
+              "linearizedBaseContracts": [
+                2
+              ],
+              "name": "Empty",
+              "nodeType": "ContractDefinition",
+              "nodes": [],
+              "scope": 3,
+              "src": "25:18:0"
+            }
+          ],
+          "src": "0:44:0"
+        },
         "id": 0
       }
     }

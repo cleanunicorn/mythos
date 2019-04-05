@@ -40,7 +40,8 @@ export class Compiler {
       settings: {
         outputSelection: {
           '*': {
-            '*': ['*']
+            '*': ['*'],
+            '': ['ast'],
           }
         }
       }
