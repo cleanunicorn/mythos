@@ -34,6 +34,7 @@ module.exports.Scanner = class Scanner {
       sources: {
         [contractFile]: {
           source: contractSource,
+          ast: compiled.sources[contractFile].ast,
         }
       },
       analysisMode,

@@ -197,6 +197,49 @@
     },
     "sources": {
       "test/contracts/version-interval.sol": {
+        "ast": {
+          "absolutePath": "test/contracts/version-interval.sol",
+          "exportedSymbols": {
+            "VersionInterval": [
+              2
+            ]
+          },
+          "id": 3,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                ">",
+                "0.4",
+                ".24",
+                "<",
+                "0.5",
+                ".0"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:30:0"
+            },
+            {
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "documentation": null,
+              "fullyImplemented": true,
+              "id": 2,
+              "linearizedBaseContracts": [
+                2
+              ],
+              "name": "VersionInterval",
+              "nodeType": "ContractDefinition",
+              "nodes": [],
+              "scope": 3,
+              "src": "32:29:0"
+            }
+          ],
+          "src": "0:62:0"
+        },
         "id": 0
       }
     }
