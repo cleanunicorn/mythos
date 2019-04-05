@@ -156,6 +156,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
+* [0.7.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.7.0)
+  * Send the AST when requesting an analysis
+
 * [0.6.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.6.0)
   * Fix external lib import, it sends the library information to MythX
   * Dump issues in a file as *issues-[uuid].json* for easy manual inspection
