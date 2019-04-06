@@ -48,22 +48,57 @@ $ mythos analyze ./contract.sol Contract \
 
 Example:
 ```sh-session
-$ mythos analyze a.sol A --timeout=180
-Reading contract a.sol... done
-Downloading Solidity version v0.5.3+commit.10d17f24... done
-Analyzing contract A... done
-Report found 1 issues
-Title: Unprotected SELFDESTRUCT Instruction
+$ mythos analyze no-pragma.sol NoPragma
+
+Reading contract no-pragma.sol... done
+Compiling with Solidity version: latest
+ ›   Warning: no-pragma.sol:1:1: Warning: Source file does not specify required compiler version! Consider adding "pragma solidity ^0.5.7;"
+ ›   contract NoPragma {
+ ›   ^ (Relevant source part starts here and spans across multiple lines).
+ ›
+Compiling contract no-pragma.sol... done
+Analyzing contract NoPragma... done
+
+UUID: 9350d5c4-b89f-43ef-b1f7-48840fee8a02
+API Version: v1.4.12
+Harvey Version: 0.0.16
+Maestro Version: 1.2.6
+Maru Version: 0.4.2
+Mythril Version: 0.20.3
+
+Report found 2 issues
+Meta:
+Covered instructions: 40
+Covered paths: 4
+Selected compiler version: v0.4.25
+
+Title: (SWC-106) Unprotected SELFDESTRUCT Instruction
+Severity: High
 Head: The contract can be killed by anyone.
-Description: Arbitrary senders can kill this contract and withdraw its balance to their own account.
+Description: Anyone can kill this contract and withdraw its balance to an arbitrary address.
 Source code:
 
-a.sol 7:8
+no-pragma.sol 3:8
 --------------------------------------------------
 selfdestruct(msg.sender)
 --------------------------------------------------
 
 ==================================================
+
+Title: (SWC-103) Floating Pragma
+Severity: Medium
+Head: No pragma is set.
+Description: It is recommended to make a conscious choice on what version of Solidity is used for compilation. Currently no version is set in the Solidity file.
+Source code:
+
+no-pragma.sol 1:0
+--------------------------------------------------
+
+--------------------------------------------------
+
+==================================================
+
+Done
 ```
 
 ## Basic usage
