@@ -68,7 +68,7 @@ export class Compiler {
     importedFiles.push(fileName)
 
     return new Promise<any>((resolve, reject) => {
-      cli.info(`Downloading Solidity version ${solcVersion}`)
+      cli.info(`Compiling with Solidity version: ${solcVersion}`)
       solc.loadRemoteVersion(solcVersion, (err, solcSnapshot) => {
         if (err) {
           reject(err)

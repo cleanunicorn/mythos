@@ -20,5 +20,8 @@
         "typescriptreact",
         "yaml",
         "yml"
+    ],
+    "cSpell.words": [
+        "sourcemap"
     ]
 }

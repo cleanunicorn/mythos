@@ -156,8 +156,12 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
-* [0.7.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.7.1)
+* [0.8.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.8.0)
   * Fix file name when running `get-analysis` to save response as `issues-${uuid}.json`
+  * Make compilation errors more obvious
+  * Display more information from report: compiler version used, API versions, SWC-ID, report's UUID
+  * Display clear error when incorrect contract name is specified
+  * Display compilation warnings
 
 * [0.7.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.7.0)
   * Send the AST when requesting an analysis

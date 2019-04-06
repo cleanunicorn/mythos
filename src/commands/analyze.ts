@@ -70,6 +70,13 @@ export default class Analyze extends Command {
     let importedFiles
     try {
       ({compiled, importedFiles} = await c.solidity(contractFile, contractFileContent, solcVersion))
+
+      // Check if the contract exists
+      if (!(contractName in compiled.contracts[contractFile])) {
+        cli.error(`Contract ${contractName} not found.`)
+        cli.action.stop('failed')
+        return
+      }
     } catch (error) {
       if (error.message !== undefined) {
         cli.error(error.message, {exit: false})
@@ -82,6 +89,13 @@ export default class Analyze extends Command {
       cli.action.stop('failed')
       return
     }
+
+    if (compiled.errors !== undefined) {
+      for (let warning of compiled.errors) {
+        cli.warn(warning.formattedMessage)
+      }
+    }
+
     cli.action.stop('done')
 
     // Analyze the contract code
@@ -98,7 +112,6 @@ export default class Analyze extends Command {
     }
 
     // Display report
-    this.log(`Report found ${issues.issues[0].issues.length} issues`)
     const s = new Sourcemap(contractFile, contractFileContent, issues)
     this.log(s.output().join('\n'))
 
