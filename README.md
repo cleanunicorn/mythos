@@ -156,6 +156,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
+* [0.7.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.7.1)
+  * Fix file name when running `get-analysis` to save response as `issues-${uuid}.json`
+
 * [0.7.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.7.0)
   * Send the AST when requesting an analysis
 

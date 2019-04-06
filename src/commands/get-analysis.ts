@@ -74,7 +74,7 @@ export default class GetResults extends Command {
     cli.action.stop('done')
 
     // Write report
-    fs.writeFileSync(`./issues_${uuid}.json`, JSON.stringify(results, null, 4), 'utf-8')
+    fs.writeFileSync(`./issues-${uuid}.json`, JSON.stringify(results, null, 4), 'utf-8')
 
     // Display report
     this.log(`Report found ${results.issues[0].issues.length} issues`)
