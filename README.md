@@ -191,6 +191,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
+* [0.8.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.8.1)
+  * Fix off by one source mapping
+
 * [0.8.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.8.0)
   * Fix file name when running `get-analysis` to save response as `issues-${uuid}.json`
   * Make compilation errors more obvious
