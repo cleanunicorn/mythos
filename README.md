@@ -9,7 +9,7 @@ A CLI client for MythX
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c13f68494414f5fb60b10cc30a6acbc)](https://www.codacy.com/app/lucadanielcostin/mythos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/cleanunicorn/mythos/tree/master.svg?style=shield)](https://circleci.com/gh/cleanunicorn/mythos)
-
+[![Discord](https://img.shields.io/discord/481002907366588416.svg)](https://discord.gg/TwazmUU)
 <!-- toc -->
 * [Installation](#installation)
 * [Usage](#usage)
