@@ -25,10 +25,9 @@ export class Sourcemap {
     issue.locations.forEach((location: {sourceMap: string}) => {
       const arr = location.sourceMap.split(':')
       const sourceLocation = {
-        start: parseInt(arr[0], 10) - 1,
+        start: parseInt(arr[0], 10),
         length: parseInt(arr[1], 10)
       }
-      if (sourceLocation.start < 0) { sourceLocation.start = 0 }
       const lineLocation = decoder.convertOffsetToLineColumn(sourceLocation, lineBreakPositions)
 
       if (lineLocation.start) {
