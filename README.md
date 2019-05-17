@@ -191,6 +191,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
+* [0.9.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.9.0)
+  * Update to new armlet version and to new API changes
+
 * [0.8.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.8.1)
   * Fix off by one source mapping
 
