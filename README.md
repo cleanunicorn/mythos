@@ -191,6 +191,10 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.1.6
 
 # Changelog
 
+* [0.10.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.10.0)
+  * Add newly added required parameter in request: `mainSource`.
+  * Display errors in a more consistent way.
+
 * [0.9.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.9.0)
   * Update to new armlet version and to new API changes
 

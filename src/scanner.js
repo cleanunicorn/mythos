@@ -31,6 +31,7 @@ module.exports.Scanner = class Scanner {
       deployedBytecode: replaceLinkedLibs(contractData['evm']['deployedBytecode']['object']),
       deployedSourceMap: contractData['evm']['deployedBytecode']['sourceMap'],
       sourceList: importedFiles,
+      mainSource: contractFile,
       sources: {
         [contractFile]: {
           source: contractSource,

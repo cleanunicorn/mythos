@@ -106,7 +106,7 @@ export default class Analyze extends Command {
       issues = await scanner.run({compiled, contractFile, importedFiles, contractName, timeout, analysisMode})
       cli.action.stop('done')
     } catch (error) {
-      this.error(error)
+      cli.error(error, {exit: false})
       cli.action.stop('failed')
       return
     }
