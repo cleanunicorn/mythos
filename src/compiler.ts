@@ -144,7 +144,7 @@ export class Compiler {
       .then(body => {
         let lines = body.split('\n')
         for (let v of lines) {
-          if (v.indexOf(solidityVersion) !== -1) {
+          if (v.indexOf(`${solidityVersion}+`) !== -1) {
             solcVersion = v.replace('soljson-', '').replace('.js', '')
             return
           }
