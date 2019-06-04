@@ -49,7 +49,6 @@ export class Sourcemap {
 
   formatMeta(meta: any): string {
     let out = ''
-    out += 'Meta:\n'
     out += `Covered instructions: ${meta.coveredInstructions}\n`
     out += `Covered paths: ${meta.coveredPaths}\n`
     out += `Selected compiler version: v${meta.selectedCompiler}\n`
@@ -72,7 +71,7 @@ export class Sourcemap {
 
     outputList.push(this.formatStatus(this.report.status))
 
-    outputList.push(`Report found ${this.report.issues[0].issues.length} issues`)
+    outputList.push(`Report found: ${this.report.issues[0].issues.length} issues`)
 
     for (let issueList of this.report.issues) {
       outputList.push(this.formatMeta(issueList.meta))
