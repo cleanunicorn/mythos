@@ -3,7 +3,7 @@ const armlet = require('armlet');
 
 /* Dynamic linking is not supported. */
 
-const regex = new RegExp(/__\$\w+\$__/, 'g');
+const regex = new RegExp(/__.*?__(?=[0-9]|$)/, 'g');
 const address = '0000000000000000000000000000000000000000';
 const replaceLinkedLibs = byteCode => byteCode.replace(regex, address);
 
