@@ -6,6 +6,7 @@ import {Compiler} from '../compiler'
 import {Sourcemap} from '../sourcemap'
 
 const {Scanner} = require('../scanner')
+const path = require('path')
 
 export default class Analyze extends Command {
   static description = 'Scan a smart contract with MythX API'
@@ -39,6 +40,8 @@ export default class Analyze extends Command {
       name: 'contractFile',
       required: true,
       description: 'Contract file to scan',
+      // Hack to transform windows paths (containing backslash) to slash
+      parse: (input: string) => path.sep === '\\' ? input.replace(/\\/g, '/') : input,
     },
     {
       name: 'contractName',
