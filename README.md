@@ -5,7 +5,7 @@ A CLI client for MythX
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/@cleanunicorn/mythos.svg)](https://www.npmjs.com/package/@cleanunicorn/mythos)
-[![Downloads](https://img.shields.io/npm/dw/mythos.svg)](https://www.npmjs.com/package/@cleanunicorn/mythos)
+[![Downloads](https://img.shields.io/npm/dt/mythos.svg)](https://www.npmjs.com/package/@cleanunicorn/mythos)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/1c13f68494414f5fb60b10cc30a6acbc)](https://www.codacy.com/app/lucadanielcostin/mythos)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![CircleCI](https://circleci.com/gh/cleanunicorn/mythos/tree/master.svg?style=shield)](https://circleci.com/gh/cleanunicorn/mythos)
