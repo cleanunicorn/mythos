@@ -191,6 +191,9 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0
 
 # Changelog
 
+* [0.10.5](https://github.com/cleanunicorn/mythos/releases/tag/v0.10.5)
+  * Update `lodash.template` to 4.5.0 because of a security issue.
+
 * [0.10.4](https://github.com/cleanunicorn/mythos/releases/tag/v0.10.4)
   * Fix Microsoft Windows backslash path issue when specifying contract filename the paths like `folder\file.sol` are transformed to `folder/file.sol`.
   * Remove sample `output.txt` file from repo.
