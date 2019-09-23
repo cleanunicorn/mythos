@@ -16,6 +16,7 @@
     "@types/request-promise": "^4.1.43",
     "armlet": "^2.7.0",
     "cli-ux": "^5.2.1",
+    "eslint-utils": "1.4.2",
     "globby": "^8.0.2",
     "remix-lib": "^0.4.5",
     "request-promise": "^4.2.4",
