@@ -110,7 +110,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.12.3 linux-x64 node-v10.19.0
+@cleanunicorn/mythos/0.12.4 linux-x64 node-v10.19.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -151,8 +151,6 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.3/src/commands/analyze.ts)_
-
 ## `mythos get-analysis UUID`
 
 Retrieve analysis results scanned with MythX API
@@ -169,8 +167,6 @@ OPTIONS
   --mythxEthAddress=mythxEthAddress  (required)
   --mythxPassword=mythxPassword      (required)
 ```
-
-_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.3/src/commands/get-analysis.ts)_
 
 ## `mythos help [COMMAND]`
 
@@ -249,7 +245,7 @@ $ npm publish --access public
 
 # Changelog
 
-* [0.12.3](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.3)
+* [0.12.4](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.4)
   * Fix build process.
   * Add steps to help with development and publishing in readme. 
 
