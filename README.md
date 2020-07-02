@@ -14,6 +14,7 @@ A CLI client for MythX
 * [Installation](#installation)
 * [Usage](#usage)
 * [Commands](#commands)
+* [Development](#development)
 * [Changelog](#changelog)
 <!-- tocstop -->
 
@@ -109,7 +110,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.11.0 linux-x64 node-v10.16.0
+@cleanunicorn/mythos/0.12.1 linux-x64 node-v10.19.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -150,7 +151,7 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.11.0/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.1/src/commands/analyze.ts)_
 
 ## `mythos get-analysis UUID`
 
@@ -169,7 +170,7 @@ OPTIONS
   --mythxPassword=mythxPassword      (required)
 ```
 
-_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.11.0/src/commands/get-analysis.ts)_
+_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.1/src/commands/get-analysis.ts)_
 
 ## `mythos help [COMMAND]`
 
@@ -189,7 +190,14 @@ OPTIONS
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0/src/commands/help.ts)_
 <!-- commandsstop -->
 
+# Development
+
+
+
 # Changelog
+
+* [0.12.0]([https://](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.0))
+  * Fix version matching in some cases. Now the version must start with the version
 
 * [0.11.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.11.0)
   * Update `eslint-utils` to 1.4.2 because of a security issue.
