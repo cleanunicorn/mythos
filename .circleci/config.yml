@@ -33,7 +33,7 @@ jobs:
       - checkout
       - run:
           name: Install dependencies
-          command: yarn
+          command: npm i
       - save_cache:
           key: v1-npm-{{checksum ".circleci/config.yml"}}-{{checksum "package-lock.json"}}
           paths:
