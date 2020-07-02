@@ -110,7 +110,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.12.1 linux-x64 node-v10.19.0
+@cleanunicorn/mythos/0.12.3 linux-x64 node-v10.19.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -151,7 +151,7 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
-_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.1/src/commands/analyze.ts)_
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.3/src/commands/analyze.ts)_
 
 ## `mythos get-analysis UUID`
 
@@ -170,7 +170,7 @@ OPTIONS
   --mythxPassword=mythxPassword      (required)
 ```
 
-_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.1/src/commands/get-analysis.ts)_
+_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.12.3/src/commands/get-analysis.ts)_
 
 ## `mythos help [COMMAND]`
 
@@ -192,18 +192,68 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0
 
 # Development
 
-Publish new version by 
-Before you publish a new version
+Before you start hacking away, make sure to install dependencies.
 
-- tag the commit with the version number (i.e. `v0.12.1`) 
-- update `package.json` version to the new number without `v` (i.e. `0.12.1`)
-- and run `npm publish --access public`
+```console
+$ npm i
+```
 
-It will prompt for a 
+Add your tests, code and make sure tests work.
+
+```console
+$ npm test
+```
+
+If you need to update the test golden files you need to enable `GENERATE_GOLDEN` when running tests.
+
+```console
+$ GENERATE_GOLDEN=true npm test
+```
+
+Update version number in `package.json` version to the new number without `v` (i.e. `0.12.3`)
+
+```json
+{
+  "name": "@cleanunicorn/mythos",
+  "description": "A CLI client for MythX",
+  "version": "0.12.3",
+...
+```
+
+Update the `Changelog` section in readme and add a description of what was changed.
+
+```markdown
+* [0.12.3](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.3)
+  * Describe new functionality added.
+```
+
+And run `oclif` to update other sections of the readme.
+
+```console
+$ npx oclif-dev readme
+```
+
+Tag your commit with the same version number preceded by a `v` (i.e. `v0.12.3`).
+
+```console
+$ git add .
+$ git commit -m "Describe new functionality added."
+$ git tag v0.12.3
+```
+
+Finally publish the package.
+
+```console
+$ npm publish --access public
+```
 
 # Changelog
 
-* [0.12.1]([https://](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.1))
+* [0.12.3](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.3)
+  * Fix build process.
+  * Add steps to help with development and publishing in readme. 
+
+* [0.12.1](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.1)
   * Fix version matching in some cases. Now the version must start with the version
 
 * [0.11.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.11.0)
