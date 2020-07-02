@@ -123,10 +123,12 @@ export class Compiler {
       }
     }
     if (upperLimit !== 'latest') {
-      if (upperLimit === '0.6.0' || upperLimit === '0.7.0') {
-        solidityVersion = '0.5.6'
+      if (upperLimit === '0.7.0') {
+        solidityVersion = '0.6.10'
+      } else if (upperLimit === '0.6.0') {
+        solidityVersion = '0.5.17'
       } else if (upperLimit === '0.5.0') {
-        solidityVersion = '0.4.25'
+        solidityVersion = '0.4.26'
       } else if (upperLimit === '0.4.0') {
         solidityVersion = '0.3.6'
       } else if (upperLimit === '0.3.0') {
@@ -144,7 +146,8 @@ export class Compiler {
       .then(body => {
         let lines = body.split('\n')
         for (let v of lines) {
-          if (v.indexOf(`${solidityVersion}+`) !== -1) {
+          let versionName = v.replace('soljson-v', '')
+          if (versionName.indexOf(`${solidityVersion}+`) === 0) {
             solcVersion = v.replace('soljson-', '').replace('.js', '')
             return
           }

@@ -192,7 +192,14 @@ _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v2.2.0
 
 # Development
 
+Publish new version by 
+Before you publish a new version
 
+- tag the commit with the version number (i.e. `v0.12.1`) 
+- update `package.json` version to the new number without `v` (i.e. `0.12.1`)
+- and run `npm publish --access public`
+
+It will prompt for a 
 
 # Changelog
 
