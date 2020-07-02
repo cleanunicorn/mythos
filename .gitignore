@@ -101,3 +101,4 @@ compiled.json
 
 # Typescript compiled files
 *.test.js
+tsconfig.tsbuildinfo
