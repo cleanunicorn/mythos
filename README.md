@@ -203,7 +203,7 @@ It will prompt for a
 
 # Changelog
 
-* [0.12.0]([https://](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.0))
+* [0.12.1]([https://](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.1))
   * Fix version matching in some cases. Now the version must start with the version
 
 * [0.11.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.11.0)
