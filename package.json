@@ -18,9 +18,9 @@
     "cli-ux": "^5.2.1",
     "eslint-utils": "1.4.2",
     "globby": "^8.0.2",
-    "remix-lib": "^0.4.5",
+    "remix-lib": "^0.4.30",
     "request-promise": "^4.2.4",
-    "solc": "^0.5.7",
+    "solc": "^0.6.10",
     "solidity-parser-antlr": "^0.4.2",
     "tslib": "^1.9.3"
   },
