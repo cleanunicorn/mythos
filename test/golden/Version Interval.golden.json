@@ -8,17 +8,17 @@
             "methods": {}
           },
           "evm": {
-            "assembly": "    /* \"test/contracts/version-interval.sol\":32:61  contract VersionInterval {... */\n  mstore(0x40, 0x80)\n  callvalue\n    /* \"--CODEGEN--\":8:17   */\n  dup1\n    /* \"--CODEGEN--\":5:7   */\n  iszero\n  tag_1\n  jumpi\n    /* \"--CODEGEN--\":30:31   */\n  0x0\n    /* \"--CODEGEN--\":27:28   */\n  dup1\n    /* \"--CODEGEN--\":20:32   */\n  revert\n    /* \"--CODEGEN--\":5:7   */\ntag_1:\n    /* \"test/contracts/version-interval.sol\":32:61  contract VersionInterval {... */\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x0\n  codecopy\n  0x0\n  return\nstop\n\nsub_0: assembly {\n        /* \"test/contracts/version-interval.sol\":32:61  contract VersionInterval {... */\n      mstore(0x40, 0x80)\n      0x0\n      dup1\n      revert\n\n    auxdata: 0xa165627a7a723058202dce7114d6cdd56e163c66994ec72b0781c34a17c53313a3e065c369f51ce8fd0029\n}\n",
+            "assembly": "    /* \"test/contracts/version-interval.sol\":32:61  contract VersionInterval {... */\n  mstore(0x40, 0x80)\n  callvalue\n    /* \"--CODEGEN--\":8:17   */\n  dup1\n    /* \"--CODEGEN--\":5:7   */\n  iszero\n  tag_1\n  jumpi\n    /* \"--CODEGEN--\":30:31   */\n  0x0\n    /* \"--CODEGEN--\":27:28   */\n  dup1\n    /* \"--CODEGEN--\":20:32   */\n  revert\n    /* \"--CODEGEN--\":5:7   */\ntag_1:\n    /* \"test/contracts/version-interval.sol\":32:61  contract VersionInterval {... */\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x0\n  codecopy\n  0x0\n  return\nstop\n\nsub_0: assembly {\n        /* \"test/contracts/version-interval.sol\":32:61  contract VersionInterval {... */\n      mstore(0x40, 0x80)\n      0x0\n      dup1\n      revert\n\n    auxdata: 0xa165627a7a723058206dedc58ddde22972b3c1d416568addefb15925f150e45f0f69cd0022baf026800029\n}\n",
             "bytecode": {
               "linkReferences": {},
-              "object": "6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a723058202dce7114d6cdd56e163c66994ec72b0781c34a17c53313a3e065c369f51ce8fd0029",
-              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x35 DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN STOP PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 0x2d 0xce PUSH18 0x14D6CDD56E163C66994EC72B0781C34A17C5 CALLER SGT LOG3 0xe0 PUSH6 0xC369F51CE8FD STOP 0x29 ",
+              "object": "6080604052348015600f57600080fd5b50603580601d6000396000f3006080604052600080fd00a165627a7a723058206dedc58ddde22972b3c1d416568addefb15925f150e45f0f69cd0022baf026800029",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x35 DUP1 PUSH1 0x1D PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN STOP PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 PUSH14 0xEDC58DDDE22972B3C1D416568ADD 0xef 0xb1 MSIZE 0x25 CALL POP 0xe4 0x5f 0xf PUSH10 0xCD0022BAF02680002900 ",
               "sourceMap": "32:29:0:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;32:29:0;;;;;;;"
             },
             "deployedBytecode": {
               "linkReferences": {},
-              "object": "6080604052600080fd00a165627a7a723058202dce7114d6cdd56e163c66994ec72b0781c34a17c53313a3e065c369f51ce8fd0029",
-              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 0x2d 0xce PUSH18 0x14D6CDD56E163C66994EC72B0781C34A17C5 CALLER SGT LOG3 0xe0 PUSH6 0xC369F51CE8FD STOP 0x29 ",
+              "object": "6080604052600080fd00a165627a7a723058206dedc58ddde22972b3c1d416568addefb15925f150e45f0f69cd0022baf026800029",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x0 DUP1 REVERT STOP LOG1 PUSH6 0x627A7A723058 KECCAK256 PUSH14 0xEDC58DDDE22972B3C1D416568ADD 0xef 0xb1 MSIZE 0x25 CALL POP 0xe4 0x5f 0xf PUSH10 0xCD0022BAF02680002900 ",
               "sourceMap": "32:29:0:-;;;;;"
             },
             "gasEstimates": {
@@ -147,7 +147,7 @@
               ],
               ".data": {
                 "0": {
-                  ".auxdata": "a165627a7a723058202dce7114d6cdd56e163c66994ec72b0781c34a17c53313a3e065c369f51ce8fd0029",
+                  ".auxdata": "a165627a7a723058206dedc58ddde22972b3c1d416568addefb15925f150e45f0f69cd0022baf026800029",
                   ".code": [
                     {
                       "begin": 32,
@@ -188,7 +188,7 @@
             },
             "methodIdentifiers": {}
           },
-          "metadata": "{\"compiler\":{\"version\":\"0.4.25+commit.59dbf8f1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"test/contracts/version-interval.sol\":\"VersionInterval\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"test/contracts/version-interval.sol\":{\"keccak256\":\"0xaebca9452af07f953f075a502ecb3898b2d99fb7a2bb119fc4f8348a2183455f\",\"urls\":[\"bzzr://bb0b5355df56cf8e4e0c486826b8d58351775d17425aad157a6b67de9d7b8366\"]}},\"version\":1}",
+          "metadata": "{\"compiler\":{\"version\":\"0.4.26+commit.4563c3fc\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"test/contracts/version-interval.sol\":\"VersionInterval\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"test/contracts/version-interval.sol\":{\"keccak256\":\"0xaebca9452af07f953f075a502ecb3898b2d99fb7a2bb119fc4f8348a2183455f\",\"urls\":[\"bzzr://bb0b5355df56cf8e4e0c486826b8d58351775d17425aad157a6b67de9d7b8366\"]}},\"version\":1}",
           "userdoc": {
             "methods": {}
           }
