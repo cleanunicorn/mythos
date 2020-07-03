@@ -1,9 +1,9 @@
 ---
 version: 2
 jobs:
-  node-latest: &test
+  node-8: &test
     docker:
-      - image: node:latest
+      - image: node:8
     working_directory: ~/cli
     steps:
       - checkout
@@ -23,10 +23,6 @@ jobs:
       - run:
           name: Testing
           command: ./node_modules/.bin/nyc npm test
-  node-8:
-    <<: *test
-    docker:
-      - image: node:8
   cache:
     <<: *test
     steps:
@@ -45,7 +41,6 @@ workflows:
   version: 2
   "mythos":
     jobs:
-      - node-latest
       - node-8
       - cache:
           filters:

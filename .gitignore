@@ -102,3 +102,5 @@ compiled.json
 # Typescript compiled files
 *.test.js
 tsconfig.tsbuildinfo
+
+src/compiler.js
