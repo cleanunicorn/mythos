@@ -13,21 +13,23 @@
             }
           ],
           "devdoc": {
-            "methods": {}
+            "kind": "dev",
+            "methods": {},
+            "version": 1
           },
           "evm": {
-            "assembly": "    /* \"test/contracts/no-pragma.sol\":0:87  contract NoPragma {... */\n  mstore(0x40, 0x80)\n  callvalue\n  dup1\n  iszero\n  tag_1\n  jumpi\n  0x00\n  dup1\n  revert\ntag_1:\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"test/contracts/no-pragma.sol\":0:87  contract NoPragma {... */\n      mstore(0x40, 0x80)\n      callvalue\n      dup1\n      iszero\n      tag_1\n      jumpi\n      0x00\n      dup1\n      revert\n    tag_1:\n      pop\n      jumpi(tag_2, lt(calldatasize, 0x04))\n      shr(0xe0, calldataload(0x00))\n      dup1\n      0x26121ff0\n      eq\n      tag_3\n      jumpi\n    tag_2:\n      0x00\n      dup1\n      revert\n        /* \"test/contracts/no-pragma.sol\":24:85  function f() public {... */\n    tag_3:\n      tag_4\n      tag_5\n      jump\t// in\n    tag_4:\n      stop\n    tag_5:\n        /* \"test/contracts/no-pragma.sol\":67:77  msg.sender */\n      caller\n        /* \"test/contracts/no-pragma.sol\":54:78  selfdestruct(msg.sender) */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      selfdestruct\n\n    auxdata: 0xa26469706673582212205e379e16ccc26c2d0ec93cb48245770e496b09e7cf0e9c938bb0a1684462a7b164736f6c634300060a0033\n}\n",
+            "assembly": "    /* \"test/contracts/no-pragma.sol\":0:87  contract NoPragma {... */\n  mstore(0x40, 0x80)\n  callvalue\n  dup1\n  iszero\n  tag_1\n  jumpi\n  0x00\n  dup1\n  revert\ntag_1:\n  pop\n  dataSize(sub_0)\n  dup1\n  dataOffset(sub_0)\n  0x00\n  codecopy\n  0x00\n  return\nstop\n\nsub_0: assembly {\n        /* \"test/contracts/no-pragma.sol\":0:87  contract NoPragma {... */\n      mstore(0x40, 0x80)\n      callvalue\n      dup1\n      iszero\n      tag_1\n      jumpi\n      0x00\n      dup1\n      revert\n    tag_1:\n      pop\n      jumpi(tag_2, lt(calldatasize, 0x04))\n      shr(0xe0, calldataload(0x00))\n      dup1\n      0x26121ff0\n      eq\n      tag_3\n      jumpi\n    tag_2:\n      0x00\n      dup1\n      revert\n        /* \"test/contracts/no-pragma.sol\":24:85  function f() public {... */\n    tag_3:\n      tag_4\n      tag_5\n      jump\t// in\n    tag_4:\n      stop\n    tag_5:\n        /* \"test/contracts/no-pragma.sol\":67:77  msg.sender */\n      caller\n        /* \"test/contracts/no-pragma.sol\":54:78  selfdestruct(msg.sender) */\n      0xffffffffffffffffffffffffffffffffffffffff\n      and\n      selfdestruct\n\n    auxdata: 0xa26469706673582212209ad7158bd0637f2654be8451a88f66431f233467affc33e5103abe47a7f868be64736f6c634300060b0033\n}\n",
             "bytecode": {
               "linkReferences": {},
-              "object": "6080604052348015600f57600080fd5b5060848061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806326121ff014602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea26469706673582212205e379e16ccc26c2d0ec93cb48245770e496b09e7cf0e9c938bb0a1684462a7b164736f6c634300060a0033",
-              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x84 DUP1 PUSH2 0x1E PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x28 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x2D JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x33 PUSH1 0x35 JUMP JUMPDEST STOP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x5E CALLDATACOPY SWAP15 AND 0xCC 0xC2 PUSH13 0x2D0EC93CB48245770E496B09E7 0xCF 0xE SWAP13 SWAP4 DUP12 0xB0 LOG1 PUSH9 0x4462A7B164736F6C63 NUMBER STOP MOD EXP STOP CALLER ",
+              "object": "6080604052348015600f57600080fd5b5060848061001e6000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c806326121ff014602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea26469706673582212209ad7158bd0637f2654be8451a88f66431f233467affc33e5103abe47a7f868be64736f6c634300060b0033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x84 DUP1 PUSH2 0x1E PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x28 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x2D JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x33 PUSH1 0x35 JUMP JUMPDEST STOP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP11 0xD7 ISZERO DUP12 0xD0 PUSH4 0x7F2654BE DUP5 MLOAD 0xA8 DUP16 PUSH7 0x431F233467AFFC CALLER 0xE5 LT GASPRICE 0xBE SELFBALANCE 0xA7 0xF8 PUSH9 0xBE64736F6C63430006 SIGNEXTEND STOP CALLER ",
               "sourceMap": "0:87:0:-:0;;;;;;;;;;;;;;;;;;;"
             },
             "deployedBytecode": {
               "immutableReferences": {},
               "linkReferences": {},
-              "object": "6080604052348015600f57600080fd5b506004361060285760003560e01c806326121ff014602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea26469706673582212205e379e16ccc26c2d0ec93cb48245770e496b09e7cf0e9c938bb0a1684462a7b164736f6c634300060a0033",
-              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x28 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x2D JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x33 PUSH1 0x35 JUMP JUMPDEST STOP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0x5E CALLDATACOPY SWAP15 AND 0xCC 0xC2 PUSH13 0x2D0EC93CB48245770E496B09E7 0xCF 0xE SWAP13 SWAP4 DUP12 0xB0 LOG1 PUSH9 0x4462A7B164736F6C63 NUMBER STOP MOD EXP STOP CALLER ",
+              "object": "6080604052348015600f57600080fd5b506004361060285760003560e01c806326121ff014602d575b600080fd5b60336035565b005b3373ffffffffffffffffffffffffffffffffffffffff16fffea26469706673582212209ad7158bd0637f2654be8451a88f66431f233467affc33e5103abe47a7f868be64736f6c634300060b0033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x28 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x26121FF0 EQ PUSH1 0x2D JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x33 PUSH1 0x35 JUMP JUMPDEST STOP JUMPDEST CALLER PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 SWAP11 0xD7 ISZERO DUP12 0xD0 PUSH4 0x7F2654BE DUP5 MLOAD 0xA8 DUP16 PUSH7 0x431F233467AFFC CALLER 0xE5 LT GASPRICE 0xBE SELFBALANCE 0xA7 0xF8 PUSH9 0xBE64736F6C63430006 SIGNEXTEND STOP CALLER ",
               "sourceMap": "0:87:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;24:61;;;:::i;:::-;;;67:10;54:24;;"
             },
             "gasEstimates": {
@@ -180,7 +182,7 @@
               ],
               ".data": {
                 "0": {
-                  ".auxdata": "a26469706673582212205e379e16ccc26c2d0ec93cb48245770e496b09e7cf0e9c938bb0a1684462a7b164736f6c634300060a0033",
+                  ".auxdata": "a26469706673582212209ad7158bd0637f2654be8451a88f66431f233467affc33e5103abe47a7f868be64736f6c634300060b0033",
                   ".code": [
                     {
                       "begin": 0,
@@ -495,13 +497,15 @@
           "ewasm": {
             "wasm": ""
           },
-          "metadata": "{\"compiler\":{\"version\":\"0.6.10+commit.00c0fcaf\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"f\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"test/contracts/no-pragma.sol\":\"NoPragma\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"test/contracts/no-pragma.sol\":{\"keccak256\":\"0x57cc5081c8486b6d605d19e32068ad3c068619322482297f40663bfae40cc795\",\"urls\":[\"bzz-raw://861cb6a5f9ee917a8c639525517335cef1e0414ffda1c0c9f15db44a5845be8f\",\"dweb:/ipfs/QmVNohsu9qggYqiFpLnzZuRqBNitqBDYdE1CVEZYNTH9iF\"]}},\"version\":1}",
+          "metadata": "{\"compiler\":{\"version\":\"0.6.11+commit.5ef660b1\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"f\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"test/contracts/no-pragma.sol\":\"NoPragma\"},\"evmVersion\":\"istanbul\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"test/contracts/no-pragma.sol\":{\"keccak256\":\"0x57cc5081c8486b6d605d19e32068ad3c068619322482297f40663bfae40cc795\",\"urls\":[\"bzz-raw://861cb6a5f9ee917a8c639525517335cef1e0414ffda1c0c9f15db44a5845be8f\",\"dweb:/ipfs/QmVNohsu9qggYqiFpLnzZuRqBNitqBDYdE1CVEZYNTH9iF\"]}},\"version\":1}",
           "storageLayout": {
             "storage": [],
             "types": null
           },
           "userdoc": {
-            "methods": {}
+            "kind": "user",
+            "methods": {},
+            "version": 1
           }
         }
       }
@@ -523,8 +527,8 @@
       {
         "component": "general",
         "errorCode": "3420",
-        "formattedMessage": "test/contracts/no-pragma.sol: Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.6.10;\"\n",
-        "message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.6.10;\"",
+        "formattedMessage": "test/contracts/no-pragma.sol: Warning: Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.6.11;\"\n",
+        "message": "Source file does not specify required compiler version! Consider adding \"pragma solidity ^0.6.11;\"",
         "severity": "warning",
         "sourceLocation": {
           "end": -1,
