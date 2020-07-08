@@ -110,7 +110,7 @@ $ npm install -g @cleanunicorn/mythos
 $ mythos COMMAND
 running command...
 $ mythos (-v|--version|version)
-@cleanunicorn/mythos/0.12.4 linux-x64 node-v10.19.0
+@cleanunicorn/mythos/0.13.0 linux-x64 node-v10.19.0
 $ mythos --help [COMMAND]
 USAGE
   $ mythos COMMAND
@@ -151,6 +151,8 @@ OPTIONS
   --timeout=timeout                  [default: 180] How many seconds to wait for the result
 ```
 
+_See code: [src/commands/analyze.ts](https://github.com/cleanunicorn/mythos/blob/v0.13.0/src/commands/analyze.ts)_
+
 ## `mythos get-analysis UUID`
 
 Retrieve analysis results scanned with MythX API
@@ -167,6 +169,8 @@ OPTIONS
   --mythxEthAddress=mythxEthAddress  (required)
   --mythxPassword=mythxPassword      (required)
 ```
+
+_See code: [src/commands/get-analysis.ts](https://github.com/cleanunicorn/mythos/blob/v0.13.0/src/commands/get-analysis.ts)_
 
 ## `mythos help [COMMAND]`
 
@@ -244,6 +248,9 @@ $ npm publish --access public
 ```
 
 # Changelog
+
+* [0.13.0](https://github.com/cleanunicorn/mythos/releases/tag/v0.13.0)
+  * Fixed compile compatibility with solc-js.
 
 * [0.12.4](https://github.com/cleanunicorn/mythos/releases/tag/v0.12.4)
   * Fix build process.
