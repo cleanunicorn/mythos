@@ -73,7 +73,7 @@ export class Compiler {
         if (err) {
           reject(err)
         } else {
-          let compiled = JSON.parse(solcSnapshot.compile(JSON.stringify(input), findImports))
+          let compiled = JSON.parse(solcSnapshot.compile(JSON.stringify(input), { import: findImports }))
 
           // Reject if there are errors
           if (compiled.errors !== undefined) {
